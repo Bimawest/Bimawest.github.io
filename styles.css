@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Inter:wght@500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+body {
+  background-image: url('bgkai.jpg');
+  background-position: center;
+  background-size: cover;
+  /* Changed 'size' to 'background-size' */
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(7px);
+}
+
+.card-group {
+  display: flex;
+  flex-wrap: wrap;
+  /* Added flex-wrap to make cards wrap to the next line */
+  justify-content: center;
+  /* Changed 'space-around' to 'center' for better flexibility */
+  margin: auto;
+  gap: 50px;
+}
+
+.card {
+  flex: 0 0 calc(25% - 25px);
+  /* Changed width to a flexible unit */
+  height: 500px;
+  /* Consider using a relative unit like 'calc' or '%' for better responsiveness */
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.5s;
+  cursor: pointer;
+  margin: 40px;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: 0.55s;
+}
+
+.card .layer {
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  height: 75%;
+  opacity: 0;
+  transition: 0.35s;
+}
+
+.card .info {
+  position: absolute;
+  bottom: -50%;
+  padding: 15px;
+  opacity: 0;
+  transition: 0.5s bottom, 1.75s opacity;
+}
+
+.info p {
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+.info button {
+  background: #490CCC;
+  border: none;
+  padding: 8px 12px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.card:hover, .card:hover img, .card:hover .layer {
+  transform: scale(1.1);
+}
+
+.card:hover .info {
+  bottom: 0;
+  opacity: 1;
+  transition: bottom 0.5s, opacity 1.75s;
+}
+
+.info {
+  position: absolute;
+  bottom: -50%;
+  padding: 15px;
+  opacity: 0;
+  transition: bottom 0.5s, opacity 1.75s;
+}
+
+.info:hover {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Media Queries */
+
+/* For screens smaller than 768px */
+@media only screen and (max-width: 768px) {
+  .card {
+    flex: 0 0 calc(50% - 25px);
+  }
+}
+
+/* For screens smaller than 480px */
+@media only screen and (max-width: 480px) {
+  .card {
+    flex: 0 0 calc(100% - 25px);
+  }
+  .info p {
+    font-size: 12px;
+  }
+  .info button {
+    padding: 6px 10px;
+  }
+}
