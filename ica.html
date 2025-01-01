@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&family=Homemade+Apple&family=Knewave&family=Neonderthaw&display=swap" rel="stylesheet">
+
+  <!-- simplyCountdown -->
+  <link rel="stylesheet" href="countdown/simplyCountdown.theme.default.css" />
+  <script src="countdown/simplyCountdown.min.js"></script>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css">
+  <title>Wedding</title>
+</head>
+<body>
+<!-- halaman pertama -->  
+<section id="hero" class="hero fade-in">
+        <h2 id="title" class="title">YOU ARE INVITED TO
+        <br>THE WEDDING OF</h2>
+        <div id="names" class="names">
+            RAHMAD KODRI
+            <br>&
+            <br>MARLISA (ICA)
+        </div>
+        <div id="date" class="date">
+            Minggu, 19 Januari 2025
+        </div>
+        <div id="ba" class="ba">
+            <div class="container">
+              <h1 class="title">Kepada Yth.</h1>
+              <h1 id="guestName"class="name">Nama Tamu</h1>
+              <a href="#home" class="button" onClick="enableScroll()">Buka Undangan</a>
+            </div>
+        </div>
+      </div>
+</section>
+<!-- halaman beranda -->
+<section id="home" class="home">
+  <div id="grid"class="grid">
+    <img class="image" src="img/1.jpg" alt="Image 1">
+    <img class="image" src="img/2.jpg" alt="Image 2">
+    <img class="image" src="img/3.jpg" alt="Image 3">
+    <img class="image" src="img/4.jpg" alt="Image 4">
+    <img class="image" src="img/5.jpg" alt="Image 5">
+    <img class="image" src="img/6.jpg" alt="Image 6">
+  </div>
+  <div class="quote">
+    <div class="verse">
+      <p>"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang"</p>
+      <h2>QS Ar-Rum ayat 21:</h2>
+    </div>
+  </div>
+</section>
+<!-- halaman Invitation -->
+<section class="invite">
+  <img src="img/tepi.jpg" class="tepi">
+  <div class="note">
+    <h5>Catatan</h5>
+    <p>Dress Code : wear your best & comfy outfit</p>
+  </div>
+  <div class="cont"></div>
+  <div class="simply-countdown"></div>
+</section>
+<!-- halaman info -->
+<section id="info" class="info">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <h7>Direction to
+          <br>Venue</h7>
+          <div class="circle2">
+          <p id="ads"class="alamat animated">RESEPSI <br>📍 Rumah kediaman laki laki Jl.Pembangunan Rt 10 Desa Karya Jaya</p>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.173891612395!2d117.0509311749652!3d-1.0298034989602813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMcKwMDEnNDcuMyJTIDExN8KwMDMnMTIuNiJF!5e0!3m2!1sid!2sid!4v1734506493540!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a href="https://maps.app.goo.gl/PSdMtXrs1SqF4QBX6" target="_blank" class="btn btn-light btn-sm my-3">Klik untuk
+            membuka peta</a>
+          <p id="aw"class="description animated">Diharapkan untuk tidak salah alamat dan tanggal. Manakala tiba di tujuan namun tidak ada tanda-tanda sedang dilangsungkan pernikahan, boleh jadi Anda salah jadwal, atau salah tempat.</p>
+          </div>
+        </div>
+      </div>
+  </section>
+<!-- halaman story -->
+<section id="story" class="story">
+    <h6>Our Story</h6>
+ 
+    <div id="row" class="row justify-content-center mt-4">
+        <div class="col-md-5 col-10">
+          <div id="card" class="card text-center text-bg-light mb-5">
+            <div id="head" class="card-header">Saling Mengenal</div>
+            <div class="card-body">
+              <div class="row justify-content-center">
+                <div class="col-md-6">
+                  <i class="bi d-block"></i>
+                  <span>2016 - saling mengenal dibangku sekolah dan selepass lulus sekolah kami menjalin komunikasi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-10">
+          <div id="card" class="card text-center text-bg-light">
+            <div id="head" class="card-header">Mulai Memiliki Hubungan</div>
+            <div class="card-body">
+              <div class="row justify-content-center">
+                <div class="col-md-6">
+                  <i class="bi d-block"></i>
+                  <span>2022 - setelah banyaknya komunikasi kami mencoba menjalani hubungan berpacaran</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="row" class="row justify-content-center mt-4">
+        <div class="col-md-5 col-10">
+          <div id="card" class="card text-center text-bg-light mb-5">
+            <div id="head" class="card-header">Tunangan</div>
+            <div class="card-body">
+              <div class="row justify-content-center">
+                <div class="col-md-6">
+                  <i class="bi d-block"></i>
+                  <span>2023 - dan memutuskan untuk bertunangan namun hubungan tak bertahan lama</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-10">
+          <div id="card" class="card text-center text-bg-light">
+            <div id="head" class="card-header">Menikah</div>
+            <div class="card-body1">
+              <div class="row justify-content-center">
+                <div class="col-md-6">
+                  <i class="bi d-block"></i>
+                  <span>2024 - seiring berjalan nya waktu kami mencoba kembali untuk berkomunikasi lagi hingga kami memutuskan untuk melanjutkan hubungan ke jenjang yg lebih serius yaitu pernikahan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- halaman foto tambahan -->
+<section class="gift">
+  <div class="gift-img">
+    <img class="img" src="img/8.jpg" alt="">
+    <p class="kata">This chapter fells really good. Every day, we continue to love each other more and more. Making memories with you is my favorite thing to do. thank you for being my home </p>
+    <img class="img" src="img/9.jpg" alt="">
+    <img class="img" src="img/0.jpg" alt="">
+  </div>
+</section>
+<!-- halaman hadiah -->
+<section id="gifts" class="gifts">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <span>ungkapan tanda kasih</span>
+          <p>Terima kasih telah menambah semangat kegembiraan pernikahan kami dengan kehadiran dan hadiah indah Anda.
+          </p>
+        </div>
+      </div>
+      <div class="row justify-content-center text-center">
+    <div class="col-md-6">
+        <ul class="list-group">
+            <li id="mandiri" class="list-group-item">
+                <div class="fw-bold">Mandiri</div>
+                Rahmat Koderi
+                <br>1480019360075
+                <button class="btn btn-sm btn-primary" onclick="copyToClipboard('1480019360075')">Salin</button>
+            </li>
+            <li id="bri" class="list-group-item">
+                <div id="Marlisa"class="fw-bold">BRI</div>
+                Marlisa
+                <br>447801014492531
+                <button class="btn btn-sm btn-primary" onclick="copyToClipboard('447801014492531')">Salin</button>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+  </section>
+  
+  <!-- halaman ucapan -->
+  <div class="ucapan">
+    <h8>RSVP & WISHES</h8>
+    <form id="myForms" method="POST" action="https://script.google.com/macros/s/AKfycbzZEXcdTIarEeoWIHf0pi0JboUlOaNDa4GjETGxMruNOumMiq0aVnbHhsxeXoBLhcmj/exec">
+        <input id="Nama" name="Nama" type="text" placeholder="Nama" required>
+        <label for="jumlah" class="form-label">Jumlah</label>
+            <input id="Jumlah" type="number" class="form-control" id="jumlah" name="Jumlah" min="1" max="5" length="1" value="1">
+        <select id="Status" name="Status" id="status" class="form-select">
+              <option selected> Konfirmasi kehadiran </option>
+              <option value="Hadir">Hadir</option>
+              <option value="Tidak Hadir">Tidak Hadir</option>
+        </select>
+        <input id="Ucapan" name="Ucapan" type="text" placeholder="Ucapan" required>
+        <button id="btn-rsvp" type="submit">Kirim</button>
+    </form>
+
+    <h2>Ucapan Tercatat:</h2>
+    <div id="wishesList"></div>
+</div>
+  <!-- akhir halaman ucapan -->
+  
+   <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <small class="block">&copy; 2024 Bimatech. All Rights Reserved.</small>
+          <small class="block">Design by <a class="bi bi-instagram" href="https://instagram.com/bimatech_">@bimatech</a>.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+  <div id="audio-container">
+    <audio id="song" autoplay mute loop>
+      <source src="audio/save-and-sound.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="audio-icon-wrapper" style="display: none;">
+      <i class="bi bi-disc"></i>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
+
+  <!-- script counting time -->
+  <script>
+    simplyCountdown('.simply-countdown', {
+      year: 2025, // required
+      month: 1, // required
+      day: 19, // required
+      hours: 8, // Default is 0 [0-23] integer
+      words: { //words displayed into the countdown
+        days: { singular: 'hari', plural: 'hari' },
+        hours: { singular: 'jam', plural: 'jam' },
+        minutes: { singular: 'menit', plural: 'menit' },
+        seconds: { singular: 'detik', plural: 'detik' }
+      },
+    });
+  </script>
+
+  <!-- script audio -->
+  <script>
+    const rootElement = document.querySelector(":root");
+    const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
+    const audioIcon = document.querySelector('.audio-icon-wrapper i');
+    const song = document.querySelector('#song');
+    let isPlaying = false;
+
+    function disableScroll() {
+      scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+      window.onscroll = function () {
+        window.scrollTo(scrollTop, scrollLeft);
+      }
+
+      rootElement.style.scrollBehavior = 'auto';
+    }
+
+    function enableScroll() {
+      window.onscroll = function () { }
+      rootElement.style.scrollBehavior = 'smooth';
+      // localStorage.setItem('opened', 'true');
+      playAudio();
+    }
+
+    function playAudio() {
+      song.volume = 0.8;
+      audioIconWrapper.style.display = 'flex';
+      song.play();
+      isPlaying = true;
+    }
+
+    audioIconWrapper.onclick = function () {
+      if (isPlaying) {
+        song.pause();
+        audioIcon.classList.remove('bi-disc');
+        audioIcon.classList.add('bi-pause-circle');
+      } else {
+        song.play();
+        audioIcon.classList.add('bi-disc');
+        audioIcon.classList.remove('bi-pause-circle');
+      }
+
+      isPlaying = !isPlaying;
+    }
+
+    // if (!localStorage.getItem('opened')) {
+    //   disableScroll();
+    // }
+    disableScroll();
+  </script>
+  
+  <!-- script form kehadiran -->
+  <script>
+    window.addEventListener("load", function () {
+      const form = document.getElementById('my-form');
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        const action = e.target.action;
+        fetch(action, {
+          method: 'POST',
+          body: data,
+        })
+          .then(() => {
+            alert("Konfirmasi kehadiran berhasil terkirim!");
+          })
+      });
+    });
+  </script>
+  
+  <!-- script generator -->
+  <script>// Ambil nama tamu dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestName = decodeURIComponent(urlParams.get('to'));
+
+    // Tampilkan nama tamu pada elemen dengan id "guestName"
+    document.getElementById('guestName').textContent = guestName;
+  </script>
+
+<!-- script animasi -->
+<script>
+ const circles = document.querySelectorAll('#tgl, #ads, #aw');
+
+function reveal() {
+  for (let i = 0; i < circles.length; i++) {
+    let windowHeight = window.innerHeight;
+    let elementTop = circles[i].getBoundingClientRect().top;
+    let elementVisible = 150;
+
+    if (elementTop < windowHeight - elementVisible) {
+      circles[i].classList.add('show');
+    }
+  }
+}
+
+window.addEventListener('scroll', reveal);
+</script>
+
+<!-- script animasi card -->
+<script>
+ const story = document.querySelectorAll('#card, #head');
+
+function reveal() {
+  for (let i = 0; i < story.length; i++) {
+    let windowHeight = window.innerHeight;
+    let elementTop = story[i].getBoundingClientRect().top;
+    let elementVisible = 150;
+
+    if (elementTop < windowHeight - elementVisible) {
+      story[i].classList.add('show');
+    }
+  }
+}
+
+window.addEventListener('scroll', reveal);
+</script>
+
+<!-- script tombol salin -->
+<script>
+  //tombol salin
+    function copyToClipboard(text) {
+        const el = document.createElement('textarea');
+        el.value = text;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        alert('Nomor rekening berhasil disalin!');
+    }
+</script>
+
+<!-- script ucapan -->
+<script>
+    const form = document.getElementById('myForms');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+        const formData = new FormData(form);
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Success: ' + data.result);
+            fetchWishes(); // Fetch wishes after successful submission
+        })
+        .catch(error => {
+            alert('Error: ' + error.message);
+        });
+    });
+
+    function fetchWishes() {
+        fetch('https://script.google.com/macros/s/AKfycbzZEXcdTIarEeoWIHf0pi0JboUlOaNDa4GjETGxMruNOumMiq0aVnbHhsxeXoBLhcmj/exec') // Use the same URL for GET requests
+        .then(response => response.json())
+        .then(wishes => {
+            const wishesList = document.getElementById('wishesList');
+            wishesList.innerHTML = ''; // Clear previous wishes
+            wishes.forEach(wish => {
+                const wishItem = document.createElement('p');
+                wishItem.textContent = `${wish.Nama} - ${wish.Jumlah} - ${wish.Status} - ${wish.Ucapan}`;
+                wishesList.appendChild(wishItem);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching wishes:', error);
+        });
+    }
+
+    // Fetch wishes when the page loads
+    window.onload = fetchWishes;
+</script>
+
+
+</body>
+</html>
