@@ -214,6 +214,7 @@
         <button id="btn-rsvp" type="submit">Kirim</button>
     </form>
 
+    <div id="loading" style="display: none;">Loading...</div> <!-- Elemen loading -->
     <h9>Ucapan Tercatat:</h9>
     <div id="wishesList"></div>
 </div>
@@ -400,22 +401,32 @@ window.addEventListener('scroll', reveal);
 <!-- script ucapan -->
 <script>
     const form = document.getElementById('myForms');
-    form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent the default form submission
-        const formData = new FormData(form);
-        fetch(form.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert('Success: ' + data.result);
-            fetchWishes(); // Fetch wishes after successful submission
-        })
-        .catch(error => {
-            alert('Error: ' + error.message);
-        });
+const loading = document.getElementById('loading');
+const submitButton = document.getElementById('btn-rsvp');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the default form submission
+    loading.style.display = 'block'; // Tampilkan elemen loading
+    submitButton.disabled = true; // Nonaktifkan tombol kirim
+
+    const formData = new FormData(form);
+    fetch(form.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Success: ' + data.result);
+        fetchWishes(); // Fetch wishes after successful submission
+    })
+    .catch(error => {
+        alert('Error: ' + error.message);
+    })
+    .finally(() => {
+        loading.style.display = 'none'; // Sembunyikan elemen loading
+        submitButton.disabled = false; // Aktifkan kembali tombol kirim
     });
+});
 
     function fetchWishes() {
         fetch('https://script.google.com/macros/s/AKfycbzZEXcdTIarEeoWIHf0pi0JboUlOaNDa4GjETGxMruNOumMiq0aVnbHhsxeXoBLhcmj/exec') // Use the same URL for GET requests
@@ -440,4 +451,4 @@ window.addEventListener('scroll', reveal);
 
 
 </body>
-    </html>
+  </html>
