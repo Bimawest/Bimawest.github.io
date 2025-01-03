@@ -105,7 +105,7 @@ h2 {
   align-items: center;
   justify-content: center;
   height: auto; /* Mengubah menjadi auto untuk responsivitas */
-  padding: 2rem; /* Menambahkan padding */
+  margin-top: 2rem; /* Menambahkan margin */
 }
 
 .grid {
