@@ -40,44 +40,30 @@ h2 {
   top: 5%;
   font-family: cursive;
   font-weight: bold;
-  font-size: 2rem;
+  font-style: italic;
+  font-size: 0.625rem;;
 }
 
-.names {
+#nama {
   position: relative;
   font-family: "Gaegu", serif;
-  top: 9%;
-  font-size: 5vw; /* Menggunakan vw untuk ukuran font responsif */
+  top: 5%;
+  font-size: 2rem;; /* Menggunakan vw untuk ukuran font responsif */
   font-weight: bold;
   margin-bottom: 1.25;
   text-shadow: 0 2px 2px rgb(0 0 0 / 0.5);
 }
 
-.date {
+#date {
   font-family: Times New Roman;
   position: relative;
-  top: 4rem;
-  font-size: 2vw; /* Menggunakan vw untuk ukuran font responsif */
+  top: 3rem;
+  font-size: 1rem; /* Menggunakan vw untuk ukuran font responsif */
   margin-bottom: 2.5rem;
 }
 
-.undang {
-  font-family: Times New Roman;
-  position: relative;
-  top: 18.75rem;
-  font-size: 1rem;
-}
-
-.undang p {
-  font-size: 0.938rem;
-}
-.container {
-  margin-top: 0.625rem;
-}
-
 .title, .name {
-  color: black;
-  font-size: 0.625rem;
+  font-size: 0.925rem;
   font-weight: bold;
 }
 
@@ -89,7 +75,7 @@ h2 {
   display: inline-block;
   width: 30vw;
   height: 3vh;
-  font-size: 0.688rem;
+  font-size: 0.788rem;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 12px;
@@ -106,7 +92,7 @@ h2 {
   width: 60vw;
   height: auto;
   position: relative;
-  top: 2.25rem;
+  top: 2rem;
   background-color: transparent;
   border: 2px black double;
   border-radius: 15px;
@@ -205,8 +191,6 @@ h2 {
         border-top: 5px dashed #988d8d69;
         width: 100vw;
         bottom: 170px;
-        margin-left: 32.5px;
-        margin-right: 32.5px;
         margin-top: 5px;
         max-width: 100%;
         padding: 1px 3px;
@@ -489,6 +473,12 @@ input {
     border: 1px white solid;
     border-radius: 5px;
     cursor: pointer;
+}
+
+h9 {
+  font-size: 1.5rem;
+  font-family: cursive;
+  font-weight: bold;
 }
 
 footer {
@@ -778,3 +768,4 @@ footer li {
   .grid {
     grid-gap: 0px;
   }
+  
