@@ -399,15 +399,14 @@ window.addEventListener('scroll', reveal);
 </script>
 
 <!-- script ucapan -->
-<script>
-    const form = document.getElementById('myForms');
+<script>const form = document.getElementById('myForms');
 const loading = document.getElementById('loading');
 const submitButton = document.getElementById('btn-rsvp');
 
 form.addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent the default form submission
     loading.style.display = 'block'; // Tampilkan elemen loading
-    submitButton.disabled = true; // Nonaktifkan tombol kirim
+    submitButton.style.display = 'none'; // Sembunyikan tombol kirim
 
     const formData = new FormData(form);
     fetch(form.action, {
@@ -424,9 +423,10 @@ form.addEventListener('submit', function(e) {
     })
     .finally(() => {
         loading.style.display = 'none'; // Sembunyikan elemen loading
-        submitButton.disabled = false; // Aktifkan kembali tombol kirim
+        submitButton.style.display = 'block'; // Tampilkan kembali tombol kirim
     });
 });
+    
 
     function fetchWishes() {
         fetch('https://script.google.com/macros/s/AKfycbzZEXcdTIarEeoWIHf0pi0JboUlOaNDa4GjETGxMruNOumMiq0aVnbHhsxeXoBLhcmj/exec') // Use the same URL for GET requests
@@ -451,4 +451,4 @@ form.addEventListener('submit', function(e) {
 
 
 </body>
-  </html>
+          </html>
