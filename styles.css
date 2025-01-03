@@ -105,7 +105,7 @@ h2 {
   align-items: center;
   justify-content: center;
   height: auto; /* Mengubah menjadi auto untuk responsivitas */
-  margin-top: 2rem; /* Menambahkan margin */
+  margin-top: 2rem;/* Menambahkan margin */
 }
 
 .grid {
@@ -118,6 +118,7 @@ h2 {
   width: 100%;
   height: auto;
   border: 1px solid #ddd;
+  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.8s ease-in-out, opacity 0.5s ease-in-out;
 }
@@ -130,16 +131,16 @@ h2 {
 
 .quote {
   position: relative;
-  top: 80px;
+  top: 70px;
   margin-top: 20px;
   padding: 2rem; /* Menambahkan padding */
-  padding-right: 0px;
 }
 
 .quote h2 {
   position: relative;
   font-size: 22px;
   padding-left: 50px;
+  
 }
 
 .quote p {
