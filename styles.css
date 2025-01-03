@@ -37,7 +37,7 @@ body {
 
 h2 {
   position: relative;
-  top: 5%;
+  top: 4%;
   font-family: cursive;
   font-weight: bold;
   font-style: italic;
@@ -47,8 +47,8 @@ h2 {
 #nama {
   position: relative;
   font-family: "Gaegu", serif;
-  top: 5%;
-  font-size: 2rem;; /* Menggunakan vw untuk ukuran font responsif */
+  top: 7%;
+  font-size: 1.6rem; /* Menggunakan vw untuk ukuran font responsif */
   font-weight: bold;
   margin-bottom: 1.25;
   text-shadow: 0 2px 2px rgb(0 0 0 / 0.5);
@@ -57,13 +57,13 @@ h2 {
 #date {
   font-family: Times New Roman;
   position: relative;
-  top: 3rem;
-  font-size: 1rem; /* Menggunakan vw untuk ukuran font responsif */
+  top: 4rem;
+  font-size: 0.825rem; /* Menggunakan vw untuk ukuran font responsif */
   margin-bottom: 2.5rem;
 }
 
 .title, .name {
-  font-size: 0.925rem;
+  font-size: 0.725rem;
   font-weight: bold;
 }
 
@@ -92,7 +92,7 @@ h2 {
   width: 60vw;
   height: auto;
   position: relative;
-  top: 2rem;
+  top: 3rem;
   background-color: transparent;
   border: 2px black double;
   border-radius: 15px;
