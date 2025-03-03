@@ -191,14 +191,14 @@
         /* Center horizontally */
         transform: translate(-50%, -50%);
         /* Adjust position to truly center */
-        width: 90%;
+        width: 50%;
         height: auto;
         z-index: 998;
         border: 1px black solid;
         border-radius: 5%;
         background-image: url("img/biji.jpeg");
         background-size: cover;
-        display: none;
+        display: inline;
     }
 
     .notif .notifdes {
@@ -223,6 +223,16 @@
         border: 1px white solid;
         border-radius: 20%;
         margin-top: 1rem;
+    }
+
+    #backoff {
+        position: fixed;
+        background-color: rgba(30, 30, 30, 12%);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        height: 100vh;
+        z-index: 997;
+        display: inline;
     }
 
     /* Hero Section Styles */
@@ -355,6 +365,34 @@
         border: 1px solid black;
         border-radius: 5px;
         cursor: pointer;
+    }
+
+    /* Gaya untuk tombol keranjang yang dinonaktifkan */
+    .cart:disabled {
+        background-color: #cccccc;
+        /* Warna latar belakang abu-abu */
+        color: #666666;
+        /* Warna teks abu-abu gelap */
+        cursor: not-allowed;
+        /* Mengubah kursor menjadi tanda "tidak diizinkan" */
+        opacity: 0.7;
+        /* Mengurangi opacity untuk efek "tidak aktif" */
+        border: 1px solid #999999;
+        /* Garis tepi abu-abu */
+    }
+
+    /* Gaya untuk tombol keranjang yang aktif */
+    .cart:not(:disabled) {
+        background-color: black;
+        /* Warna latar belakang hitam */
+        color: white;
+        /* Warna teks putih */
+        cursor: pointer;
+        /* Kursor pointer */
+        opacity: 1;
+        /* Opacity penuh */
+        border: 1px solid black;
+        /* Garis tepi hitam */
     }
 
     .description {
@@ -536,6 +574,7 @@
             <button id="confirm">OK</button>
         </div>
     </div>
+    <div id="backoff"></div>
 
     <!-- Header Section -->
     <header class="header">
@@ -567,21 +606,44 @@
         <div class="slider-move" style="--width: 200px; --height: 200px; --quantity: 6;">
             <span>BEST SELLEER</span>
             <div class="list-move">
-                <div class="item-move" style="--position: 1"><img src="img/bean_varian.jpg" alt=""></div>
-                <div class="item-move" style="--position: 2"><img src="img/butterscotch.jpg" alt=""></div>
-                <div class="item-move" style="--position: 3"><img src="img/latte.jpg" alt=""></div>
-                <div class="item-move" style="--position: 4"><img src="img/baileys_coffe.jpg" alt=""></div>
-                <div class="item-move" style="--position: 5"><img src="img/berry_coffe.jpg" alt=""></div>
-                <div class="item-move" style="--position: 6"><img src="img/coffe_brownsugar.jpg" alt=""></div>
+                <div class="item-move" style="--position: 1">
+                    <img src="img/bean_varian.jpg" alt="" />
+                </div>
+                <div class="item-move" style="--position: 2">
+                    <img src="img/butterscotch.jpg" alt="" />
+                </div>
+                <div class="item-move" style="--position: 3">
+                    <img src="img/dimsum.jpg" alt="" />
+                </div>
+                <div class="item-move" style="--position: 4">
+                    <img src="img/brownies.jpg" alt="" />
+                </div>
+                <div class="item-move" style="--position: 5">
+                    <img src="img/chiken_wings.jpeg" alt="" />
+                </div>
+                <div class="item-move" style="--position: 6">
+                    <img src="img/coffe_brownsugar.jpg" alt="" />
+                </div>
 
-                <div class="item-move" style="--position: 1"><img src="img/virgin_mojito.jpg" alt=""></div>
-                <div class="item-move" style="--position: 2"><img src="img/mango_yakult.jpg" alt=""></div>
-                <div class="item-move" style="--position: 3"><img src="img/taro_late.jpg" alt=""></div>
-                <div class="item-move" style="--position: 4"><img src="img/orange_coffe.jpg" alt=""></div>
-                <div class="item-move" style="--position: 5"><img src="img/pandan_coffe.jpg" alt=""></div>
-                <div class="item-move" style="--position: 6"><img src="img/choco_berry.jpg" alt=""></div>
+                <div class="item-move" style="--position: 1">
+                    <img src="img/chiken_wings.jpeg" alt="" />
+                </div>
+                <div class="item-move" style="--position: 2">
+                    <img src="img/mango_yakult.jpg" alt="" />
+                </div>
+                <div class="item-move" style="--position: 3">
+                    <img src="img/taro_late.jpg" alt="" />
+                </div>
+                <div class="item-move" style="--position: 4">
+                    <img src="img/orange_coffe.jpg" alt="" />
+                </div>
+                <div class="item-move" style="--position: 5">
+                    <img src="img/pandan_coffe.jpg" alt="" />
+                </div>
+                <div class="item-move" style="--position: 6">
+                    <img src="img/choco_berry.jpg" alt="" />
+                </div>
             </div>
-        </div>
     </section>
 
     <!-- Main Content -->
@@ -780,102 +842,103 @@
                 </ul>
             </div>
             <div class="footer-contact">
-                <p>(+62)852-4619-6402</p>
+                <a href="https://wa.me/6285246196402?text=Halo,%20kak%20saya..." target="_blank">(+62)85246196402</a>
             </div>
             <div class="footer-social">
                 <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/m.bimarizki/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/kai.coffeeandeatery/" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-    const addToCartButtons = document.querySelectorAll(".cart");
-    const cartBadge = document.getElementById("cart-badge");
+            const addToCartButtons = document.querySelectorAll(".cart");
+            const cartBadge = document.getElementById("cart-badge");
 
-    // Fungsi untuk memperbarui badge keranjang
-    function updateCartBadge() {
-        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-        cartBadge.textContent = cartItems.length; // Update jumlah item di badge
+            // Fungsi untuk memperbarui badge keranjang
+            function updateCartBadge() {
+                const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+                cartBadge.textContent = cartItems.length; // Update jumlah item di badge
 
-        // Sembunyikan badge jika jumlah item adalah 0
-        if (cartItems.length === 0) {
-            cartBadge.style.display = "none";
-        } else {
-            cartBadge.style.display = "block";
-        }
-    }
+                // Sembunyikan badge jika jumlah item adalah 0
+                if (cartItems.length === 0) {
+                    cartBadge.style.display = "none";
+                } else {
+                    cartBadge.style.display = "block";
+                }
+            }
 
-    // Update badge saat halaman dimuat
-    updateCartBadge();
-
-    // Add event listener to all "+" buttons
-    addToCartButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const imgSrc = button.getAttribute("data-img"); // Get the image source
-            const itemName = button.getAttribute("data-name"); // Get the item name
-            const quantity = button.parentElement.querySelector(".quantity").value; // Get the quantity
-
-            // Create a cart item object
-            const cartItem = {
-                imgSrc: imgSrc,
-                itemName: itemName,
-                quantity: quantity,
-            };
-
-            // Retrieve existing cart items from localStorage
-            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-            // Add the new item to the cart
-            cartItems.push(cartItem);
-
-            // Save the updated cart back to localStorage
-            localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-            // Update the cart badge
+            // Update badge saat halaman dimuat
             updateCartBadge();
 
-            // Animate the image to the cart
-            animateImageToCart(imgSrc);
+            // Add event listener to all "+" buttons
+            addToCartButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const imgSrc = button.getAttribute("data-img"); // Get the image source
+                    const itemName = button.getAttribute("data-name"); // Get the item name
+                    const quantity = button.parentElement.querySelector(".quantity").value; // Get the quantity
+
+                    // Create a cart item object
+                    const cartItem = {
+                        imgSrc: imgSrc,
+                        itemName: itemName,
+                        quantity: quantity,
+                    };
+
+                    // Retrieve existing cart items from localStorage
+                    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+                    // Add the new item to the cart
+                    cartItems.push(cartItem);
+
+                    // Save the updated cart back to localStorage
+                    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+                    // Update the cart badge
+                    updateCartBadge();
+
+                    // Animate the image to the cart
+                    animateImageToCart(imgSrc);
+                });
+            });
+
+            // Function to animate the image to the cart
+            function animateImageToCart(imgSrc) {
+                const img = document.createElement("img");
+                img.src = imgSrc;
+                img.style.position = "fixed";
+                img.style.width = "50px";
+                img.style.height = "50px";
+                img.style.borderRadius = "50%";
+                img.style.transition = "all 1s ease";
+                document.body.appendChild(img);
+
+                const cartIcon = document.querySelector(".fa-shopping-cart");
+                const cartIconRect = cartIcon.getBoundingClientRect();
+
+                const imgRect = img.getBoundingClientRect();
+                const startX = imgRect.left;
+                const startY = imgRect.top;
+                const endX = cartIconRect.left + cartIconRect.width / 2 - imgRect.width / 2;
+                const endY = cartIconRect.top + cartIconRect.height / 2 - imgRect.height / 2;
+
+                img.style.left = `${startX}px`;
+                img.style.top = `${startY}px`;
+
+                setTimeout(() => {
+                    img.style.left = `${endX}px`;
+                    img.style.top = `${endY}px`;
+                    img.style.opacity = "1";
+                }, 10);
+
+                setTimeout(() => {
+                    img.remove();
+                }, 1010);
+            }
         });
-    });
-
-    // Function to animate the image to the cart
-    function animateImageToCart(imgSrc) {
-        const img = document.createElement("img");
-        img.src = imgSrc;
-        img.style.position = "fixed";
-        img.style.width = "50px";
-        img.style.height = "50px";
-        img.style.borderRadius = "50%";
-        img.style.transition = "all 1s ease";
-        document.body.appendChild(img);
-
-        const cartIcon = document.querySelector(".fa-shopping-cart");
-        const cartIconRect = cartIcon.getBoundingClientRect();
-
-        const imgRect = img.getBoundingClientRect();
-        const startX = imgRect.left;
-        const startY = imgRect.top;
-        const endX = cartIconRect.left + cartIconRect.width / 2 - imgRect.width / 2;
-        const endY = cartIconRect.top + cartIconRect.height / 2 - imgRect.height / 2;
-
-        img.style.left = `${startX}px`;
-        img.style.top = `${startY}px`;
-
-        setTimeout(() => {
-            img.style.left = `${endX}px`;
-            img.style.top = `${endY}px`;
-            img.style.opacity = "1";
-        }, 10);
-
-        setTimeout(() => {
-            img.remove();
-        }, 1010);
-    }
-});
     </script>
 
     <script>
@@ -972,37 +1035,22 @@
     </script>
 
     <script>
-        // Mendapatkan referensi ke tombol dan elemen yang akan disembunyikan
-        const hideButton = document.getElementById("confirm");
-        const myElement = document.getElementById("notif");
+        // Menampilkan notif dan backoff saat halaman dimuat
+        window.addEventListener("load", () => {
+            const notif = document.getElementById("notif");
+            const backoff = document.getElementById("backoff");
 
-        // Menambahkan event listener ke tombol
-        hideButton.addEventListener("click", function () {
-            // Mengatur display elemen menjadi 'none'
-            myElement.style.display = "none";
+            notif.style.display = "block";
+            backoff.style.display = "block";
         });
-    </script>
 
-    <script>
-        // Mendapatkan referensi ke tombol dan elemen yang akan disembunyikan
-        const hideBtn = document.getElementById("btnmenu");
-        const Element = document.querySelector(".description");
+        // Menutup notif dan backoff saat tombol "OK" diklik
+        document.getElementById("confirm").addEventListener("click", () => {
+            const notif = document.getElementById("notif");
+            const backoff = document.getElementById("backoff");
 
-        // Menambahkan event listener ke tombol
-        hideBtn.addEventListener("click", function () {
-            // Mengatur display elemen menjadi 'none'
-            Element.style.display = "inline";
-        });
-    </script>
-    <script>
-        // Mendapatkan referensi ke tombol dan elemen yang akan disembunyikan
-        const hideButon = document.querySelector(".btndes");
-        const Elements = document.querySelector(".description");
-
-        // Menambahkan event listener ke tombol
-        hideButon.addEventListener("click", function () {
-            // Mengatur display elemen menjadi 'none'
-            Elements.style.display = "none";
+            notif.style.display = "none";
+            backoff.style.display = "none";
         });
     </script>
 
@@ -1033,19 +1081,35 @@
         });
     </script>
 
+    <!--script diseble masukkan keranjang-->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const minusButtons = document.querySelectorAll(".minus");
             const plusButtons = document.querySelectorAll(".plus");
+            const cartButtons = document.querySelectorAll(".cart");
+
+            // Fungsi untuk memeriksa dan mengatur status tombol keranjang
+            function updateCartButtonState(input, cartButton) {
+                if (parseInt(input.value) === 0) {
+                    cartButton.disabled = true; // Nonaktifkan tombol jika nilai input adalah 0
+                } else {
+                    cartButton.disabled = false; // Aktifkan tombol jika nilai input lebih dari 0
+                }
+            }
 
             // Fungsi untuk tombol minus
             minusButtons.forEach((button) => {
                 button.addEventListener("click", () => {
                     const input = button.nextElementSibling; // Ambil input yang bersebelahan
                     let value = parseInt(input.value); // Ambil nilai input dan ubah ke integer
-                    if (value > 1) { // Pastikan nilai tidak kurang dari 1
+                    if (value > 0) { // Pastikan nilai tidak kurang dari 1
                         input.value = value - 1; // Kurangi nilai
+                    } else {
+                        input.value = 0; // Set nilai ke 0 jika kurang dari 1
                     }
+                    // Perbarui status tombol keranjang
+                    const cartButton = button.parentElement.querySelector(".cart");
+                    updateCartButtonState(input, cartButton);
                 });
             });
 
@@ -1055,10 +1119,20 @@
                     const input = button.previousElementSibling; // Ambil input yang bersebelahan
                     let value = parseInt(input.value); // Ambil nilai input dan ubah ke integer
                     input.value = value + 1; // Tambahkan nilai
+                    // Perbarui status tombol keranjang
+                    const cartButton = button.parentElement.querySelector(".cart");
+                    updateCartButtonState(input, cartButton);
                 });
+            });
+
+            // Inisialisasi status tombol keranjang saat halaman dimuat
+            cartButtons.forEach((cartButton) => {
+                const input = cartButton.parentElement.querySelector(".quantity");
+                updateCartButtonState(input, cartButton);
             });
         });
     </script>
+
 </body>
 
 </html>
