@@ -141,7 +141,7 @@
         <div class="container">
             <div class="logo-container">
                 <img id="logo" alt="Logo Coffee Shop" src="img/logo.jpg" />
-                <a href="index.html" id="home" title="Search">Coffee Shop</a>
+                <a href="index.html" id="home" title="Search">KAI</a>
             </div>
             <nav class="nav">
                 <a href="/search" title="Search">
@@ -160,60 +160,86 @@
     <main class="containers">
         <h2>Keranjang Belanja</h2>
         <div class="cart-items"></div>
-        <button class="checkout-button">Checkout</button>
+        <button class="checkout-button" onclick="sendWhatsAppMessage()">Checkout</button>
     </main>
 
     <script>
-       document.addEventListener('DOMContentLoaded', () => {
-    const cartItemsContainer = document.querySelector('.cart-items');
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItemsContainer = document.querySelector('.cart-items');
 
-    // Retrieve cart items from localStorage
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            // Retrieve cart items from localStorage
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-    if (cartItems.length === 0) {
-        cartItemsContainer.innerHTML = '<p>Keranjang Anda kosong.</p>';
-    } else {
-        cartItems.forEach(item => {
-            const cartItem = document.createElement('div');
-            cartItem.classList.add('cart-item');
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Keranjang Anda kosong.</p>';
+            } else {
+                cartItems.forEach(item => {
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
 
-            const imgElement = document.createElement('img');
-            imgElement.src = item.imgSrc;
-            imgElement.alt = item.itemName;
+                    const imgElement = document.createElement('img');
+                    imgElement.src = item.imgSrc;
+                    imgElement.alt = item.itemName;
 
-            const itemNameElement = document.createElement('span');
-            itemNameElement.textContent = `${item.itemName} (${item.quantity})`;
+                    const itemNameElement = document.createElement('span');
+                    itemNameElement.textContent = `${item.itemName} (${item.quantity})`;
 
-            const removeButton = document.createElement('button');
-            removeButton.textContent = 'Remove';
-            removeButton.classList.add('remove-from-cart');
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Remove';
+                    removeButton.classList.add('remove-from-cart');
 
-            // Add event listener to remove button
-            removeButton.addEventListener('click', () => {
-                // Remove the item from localStorage
-                const updatedCartItems = cartItems.filter(cartItem => cartItem.itemName !== item.itemName);
-                localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+                    // Add event listener to remove button
+                    removeButton.addEventListener('click', () => {
+                        // Remove the item from localStorage
+                        const updatedCartItems = cartItems.filter(cartItem => cartItem.itemName !== item.itemName);
+                        localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
 
-                // Remove the item from the DOM
-                cartItem.remove();
+                        // Remove the item from the DOM
+                        cartItem.remove();
 
-                // Refresh the page if the cart is empty
-                if (updatedCartItems.length === 0) {
-                    location.reload();
-                }
-            });
+                        // Refresh the page if the cart is empty
+                        if (updatedCartItems.length === 0) {
+                            location.reload();
+                        }
+                    });
 
-            // Append elements to the cart item
-            cartItem.appendChild(imgElement);
-            cartItem.appendChild(itemNameElement);
-            cartItem.appendChild(removeButton);
+                    // Append elements to the cart item
+                    cartItem.appendChild(imgElement);
+                    cartItem.appendChild(itemNameElement);
+                    cartItem.appendChild(removeButton);
 
-            // Append the cart item to the container
-            cartItemsContainer.appendChild(cartItem);
+                    // Append the cart item to the container
+                    cartItemsContainer.appendChild(cartItem);
+                });
+            }
         });
-    }
-});
     </script>
+
+    <script>
+        function sendWhatsAppMessage() {
+            // Ambil data pemesanan (contoh: dari input atau elemen HTML)
+            const cartItems = document.querySelector('.cartitems').innerText; // Contoh data keranjang belanja
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleDateString('id-ID'); // Format tanggal Indonesia
+            const formattedTime = currentDate.toLocaleTimeString('id-ID'); // Format waktu Indonesia
+
+            // Buat pesan yang akan dikirim
+            const message = `hallo kak saya memesan:\n${cartItems}\n\nTanggal: ${formattedDate}\nWaktu: ${formattedTime}`;
+
+            // Encode pesan untuk URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // Nomor WhatsApp tujuan (ganti dengan nomor yang sesuai)
+            const phoneNumber = '6285246196402'; // Contoh nomor WhatsApp
+
+            // Buat link WhatsApp
+            const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+            // Buka link WhatsApp di tab baru
+            window.open(whatsappLink, '_blank');
+        }
+    </script>
+
 </body>
 
 </html>
