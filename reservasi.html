@@ -5,10 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
-        content="Welcome to Coffee Shop, tempat yang tepat untuk menikmati kopi terbaik di kota. Jelajahi berbagai macam campuran kopi kami dan nikmati pengalaman minum kopi yang unik." />
+        content="Welcome to Coffee Shop, your go-to place for the best coffee in town. Explore our wide range of coffee blends and enjoy a unique coffee experience." />
     <meta name="keywords"
         content="coffee, coffee shop, latte, butterscotch, taro latte, pandan coffee, mango yakult, nuttela blend" />
-    <meta property="og:image" content="img/logo.png" />
     <meta name="author" content="BimaTech" />
     <title>Coffee Shop</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -39,7 +38,7 @@
     }
 
     .container {
-        max-width: 1200px;
+        max-width: 100%;
         margin: 0 auto;
         padding: 1rem;
         display: flex;
@@ -273,7 +272,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
-        max-width: 1200px;
+        max-width: 100%;
         margin: 0 auto;
         padding: 0 1rem;
     }
@@ -422,91 +421,7 @@
         background-size: 100% 50%;
     }
 
-    @media (max-width: 768px) {
-        .reservasi {
-            width: 90%;
-            padding: 10px;
-        }
 
-        .reservasi h1 {
-            font-size: 20px;
-        }
-
-        .reservasi input,
-        .reservasi button {
-            font-size: 12px;
-            padding: 8px;
-        }
-
-        .product-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .product-item {
-            padding: 0.5rem;
-        }
-
-        .product-item img {
-            padding: 0.5rem;
-        }
-
-        .product-item h3 {
-            font-size: 1rem;
-        }
-
-        .product-item p {
-            font-size: 0.875rem;
-        }
-
-        .product-item .price {
-            font-size: 0.875rem;
-        }
-
-        .cart {
-            margin: 0.5rem;
-        }
-
-        .description {
-            width: 80%;
-        }
-
-        .description img {
-            width: 100%;
-        }
-
-        .description button {
-            width: 30%;
-        }
-
-        .products p {
-            font-size: 1rem;
-        }
-
-        .footer .container {
-            flex-direction: column;
-            gap: 1rem;
-            text-align: center;
-        }
-
-        .footer-logo img {
-            align-self: center;
-            margin: 0 auto;
-        }
-
-        .footer-social {
-            text-align: center;
-            margin: 0 5px;
-            font-size: 1.5rem;
-        }
-
-        .footer-social a:hover {
-            color: #a0aec0;
-        }
-
-        .footer-contact a:hover {
-            color: #a0aec0;
-        }
-    }
 
     @media (min-width: 768px) {
         .product-grid {
@@ -523,6 +438,22 @@
         text-align: center;
     }
 
+    .product-item h3 {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        background-color: black;
+        color: white;
+        border-radius: 9999px;
+    }
+
+    .product-item .price {
+        font-weight: bold;
+        margin-bottom: 1rem;
+        background-color: black;
+        color: white;
+        border-radius: 9999px;
+    }
+
     .product-item img {
         width: 100%;
         height: auto;
@@ -530,17 +461,6 @@
         margin-bottom: 1rem;
         padding: 0.5rem 1rem;
         border-radius: 15%;
-    }
-
-    .product-item h3 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-    }
-
-    .product-item p {
-        color: #4a5568;
-        margin-bottom: 0.5rem;
     }
 
     .product-item .price {
@@ -620,6 +540,62 @@
     .footer-social a {
         position: relative;
         margin: 3px;
+    }
+
+    @media (max-width: 767px) {
+        .container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .nav {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav a {
+            font-size: 1.5rem;
+        }
+
+        .reservasi {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .product-item {
+            padding: 15px;
+        }
+
+        .jumblah {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 10px;
+        }
+
+        .jumblah input.quantity {
+            width: 30px;
+            /* Lebar input */
+        }
+
+
+        .footer .container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-contact,
+        .footer-social {
+            margin-top: 1rem;
+        }
     }
 </style>
 
@@ -1335,7 +1311,7 @@
             </div>
             <div class="footer-links">
                 <ul>
-                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
                     <li><a href="#">Kopi Biji</a></li>
                     <li><a href="#">Pembayaran</a></li>
                     <li><a href="#">Pengiriman</a></li>
