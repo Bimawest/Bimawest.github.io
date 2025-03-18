@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Admin Page for Coffee Shop" />
+    <meta name="description" content="Halaman Admin untuk Coffee Shop" />
     <title>Admin - Coffee Shop</title>
     <link href="https://cdn.tailwindcss.com" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
@@ -12,22 +12,22 @@
 
 <body class="bg-gray-100">
     <div class="container mx-auto p-4">
-        <h1 class="text-2xl font-bold mb-4">Admin Panel</h1>
+        <h1 class="text-2xl font-bold mb-4">Panel Admin</h1>
 
         <form id="addProductForm" class="mb-4">
-            <h2 class="text-xl font-semibold">Add New Product</h2>
-            <input type="text" id="productName" placeholder="Product Name" required class="border p-2 mr-2" />
-            <input type="text" id="productPrice" placeholder="Product Price" required class="border p-2 mr-2" />
-            <input type="text" id="productImage" placeholder="Image URL" required class="border p-2 mr-2" />
-            <button type="submit" class="bg-blue-500 text-white p-2">Add Product</button>
+            <h2 class="text-xl font-semibold">Tambah Produk Baru</h2>
+            <input type="text" id="productName" placeholder="Nama Produk" required class="border p-2 mr-2" />
+            <input type="text" id="productPrice" placeholder="Harga Produk" required class="border p-2 mr-2" />
+            <input type="file" id="productImage" accept="image/*" required class="border p-2 mr-2" />
+            <button type="submit" class="bg-blue-500 text-white p-2">Tambah Produk</button>
         </form>
 
-        <h2 class="text-xl font-semibold">Existing Products</h2>
+        <h2 class="text-xl font-semibold">Produk yang Ada</h2>
         <div id="productList" class="mt-4"></div>
     </div>
 
     <script>
-        // Function to display products
+        // Fungsi untuk menampilkan produk
         function displayProducts() {
             const productList = document.getElementById('productList');
             productList.innerHTML = '';
@@ -39,33 +39,40 @@
                 productDiv.innerHTML = `
                     <div>
                         <h3 class="font-semibold">${product.name}</h3>
-                        <p>Price: Rp${product.price}</p>
+                        <p>Harga: Rp${product.price}</p>
                         <img src="${product.image}" alt="${product.name}" class="w-16 h-16 object-cover" />
                     </div>
-                    <button class="bg-red-500 text-white p-1" onclick="deleteProduct(${index})">Delete</button>
+                    <button class="bg-red-500 text-white p-1" onclick="deleteProduct(${index})">Hapus</button>
                 `;
                 productList.appendChild(productDiv);
             });
         }
 
-        // Function to add a new product
+        // Fungsi untuk menambah produk baru
         document.getElementById('addProductForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
             const name = document.getElementById('productName').value;
             const price = document.getElementById('productPrice').value;
-            const image = document.getElementById('productImage').value;
+            const imageFile = document.getElementById('productImage').files[0];
 
-            const products = JSON.parse(localStorage.getItem('menuItems')) || [];
-            products.push({ name, price, image });
-            localStorage.setItem('menuItems', JSON.stringify(products));
+            const reader = new FileReader();
+            reader.onloadend = function () {
+                const products = JSON.parse(localStorage.getItem('menuItems')) || [];
+                products.push({ name, price, image: reader.result });
+                localStorage.setItem('menuItems', JSON.stringify(products));
 
-            // Clear the form
-            this.reset();
-            displayProducts();
+                // Mengosongkan form
+                document.getElementById('addProductForm').reset();
+                displayProducts();
+            };
+
+            if (imageFile) {
+                reader.readAsDataURL(imageFile); // Membaca file gambar sebagai URL data
+            }
         });
 
-        // Function to delete a product
+        // Fungsi untuk menghapus produk
         function deleteProduct(index) {
             const products = JSON.parse(localStorage.getItem('menuItems')) || [];
             products.splice(index, 1);
@@ -73,7 +80,7 @@
             displayProducts();
         }
 
-        // Display products on page load
+        // Menampilkan produk saat halaman dimuat
         displayProducts();
     </script>
 </body>
