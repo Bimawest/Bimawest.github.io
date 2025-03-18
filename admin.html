@@ -8,6 +8,7 @@
     <title>Admin - Coffee Shop</title>
     <link href="https://cdn.tailwindcss.com" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style(1).css" /> <!-- Pastikan untuk menyertakan CSS yang sama -->
 </head>
 
 <body class="bg-gray-100">
@@ -23,7 +24,9 @@
         </form>
 
         <h2 class="text-xl font-semibold">Produk yang Ada</h2>
-        <div id="productList" class="mt-4"></div>
+        <section id="productList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+            <!-- Produk akan ditampilkan di sini -->
+        </section>
     </div>
 
     <script>
@@ -35,14 +38,14 @@
             const products = JSON.parse(localStorage.getItem('menuItems')) || [];
             products.forEach((product, index) => {
                 const productDiv = document.createElement('div');
-                productDiv.className = 'flex justify-between items-center border p-2 mb-2';
+                productDiv.className = 'product-item border rounded-lg p-4 bg-white shadow-md';
                 productDiv.innerHTML = `
-                    <div>
-                        <h3 class="font-semibold">${product.name}</h3>
-                        <p>Harga: Rp${product.price}</p>
-                        <img src="${product.image}" alt="${product.name}" class="w-16 h-16 object-cover" />
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-32 object-cover rounded-md mb-2" />
+                    <h3 class="font-semibold">${product.name}</h3>
+                    <p class="price">Rp${product.price}</p>
+                    <div class="flex justify-between mt-2">
+                        <button class="bg-red-500 text-white p-1" onclick="deleteProduct(${index})">Hapus</button>
                     </div>
-                    <button class="bg-red-500 text-white p-1" onclick="deleteProduct(${index})">Hapus</button>
                 `;
                 productList.appendChild(productDiv);
             });
