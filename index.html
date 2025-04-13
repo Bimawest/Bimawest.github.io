@@ -789,10 +789,10 @@
     }
 
     // Cek halaman saat ini dan atur item aktif
-    if (window.location.pathname.includes('food.html')) {
-        setActive(foodItem);
-    } else {
+    if (window.location.pathname.includes('index.html')) {
         setActive(drinkItem);
+    } else {
+        setActive(foodItem);
     }
 
     // Tambahkan event listener untuk item navigasi
