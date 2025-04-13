@@ -119,6 +119,7 @@
  main {
    background-image: url(img/papan.jpeg);
    background-size: 100% 50%;
+   margin-top: 1rem;
  }
 
  .menu h1 {
