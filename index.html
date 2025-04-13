@@ -772,12 +772,43 @@
     </footer>
 
     <script>
-        const list = document.querySelectorAll('.list');
-        function active() {
-            list.forEach((item) => item.classList.remove('active'));
-            this.classList.add('active');
+        document.addEventListener('DOMContentLoaded', function() {
+    const list = document.querySelectorAll('.list');
+    const indicator = document.querySelector('.indicator');
+    const foodItem = document.getElementById('food-item');
+    const drinkItem = list[0]; // Mengasumsikan item pertama adalah drink
+
+    // Fungsi untuk mengatur kelas aktif dan memindahkan indikator
+    function setActive(item) {
+        list.forEach((li) => li.classList.remove('active'));
+        item.classList.add('active');
+
+        // Pindahkan indikator berdasarkan item yang aktif
+        const index = Array.from(list).indexOf(item);
+        indicator.style.transform = `translateX(calc(70px * ${index}))`;
+    }
+
+    // Cek halaman saat ini dan atur item aktif
+    if (window.location.pathname.includes('food.html')) {
+        setActive(foodItem);
+    } else {
+        setActive(drinkItem);
+    }
+
+    // Tambahkan event listener untuk item navigasi
+    list.forEach((item) => {
+        item.addEventListener('click', () => {
+            setActive(item);
+        });
+    });
+
+    // Tambahkan event listener untuk mengembalikan indikator saat kembali ke halaman drink
+    window.addEventListener('popstate', function() {
+        if (window.location.pathname.includes('index.html')) {
+            setActive(drinkItem);
         }
-        list.forEach((item) => item.addEventListener('click', active));
+    });
+});
     </script>
 
     <script>
