@@ -1,645 +1,721 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="Welcome to Coffee Shop, your go-to place for the best coffee in town. Explore our wide range of coffee blends and enjoy a unique coffee experience." />
-    <meta name="keywords"
-        content="coffee, coffee shop, latte, butterscotch, taro latte, pandan coffee, mango yakult, nuttela blend" />
-    <meta name="author" content="BimaTech" />
-    <title>Coffee Shop</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-    <div id="loading-spinner" class="loading-spinner">
-        <div class="spinner"></div>
-    </div>
-
-    <!-- Header Section -->
-    <header class="header">
-        <div class="container">
-            <div class="logo-container">
-                <img id="logo" alt="Logo Coffee Shop" src="img/logo.png" />
-                <span>Coffe Shop</span>
-            </div>
-            <nav class="nav">
-                <a href="reservasi.html" title="Home" id="reservasi">
-                    RESERVASI
-                </a>
-                <a href="keranjang.html" title="Shopping Cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span id="cart-badge" class="cart-badge">0</span> <!-- Badge untuk jumlah item -->
-                </a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="slider-move" style="--width: 200px; --height: 200px; --quantity: 6;">
-            <span>BEST SELLEER</span>
-            <div class="list-move">
-                <div class="item-move" style="--position: 1">
-                    <img src="img/nasi_goreng.jpg" alt="" />
-                </div>
-                <div class="item-move" style="--position: 2">
-                    <img src="img/esspreso.jpg" alt="" />
-                </div>
-                <div class="item-move" style="--position: 3">
-                    <img src="img/picollo.jpg" alt="" />
-                </div>
-                <div class="item-move" style="--position: 4">
-                    <img src="img/dimsum.jpg" alt="" />
-                </div>
-                <div class="item-move" style="--position: 5">
-                    <img src="img/risol.jpg" alt="" />
-                </div>
-                <div class="item-move" style="--position: 6">
-                    <img src="img/tahu.jpg" alt="" />
-                </div>
-
-                <div class="item-move" style="--position: 1">
-                    <img src="img/sate.jpg" alt="" />
-                </div>
-                <div class="item-move" style="--position: 2">
-                    <img src="img/chicken_honey.jpg" alt="" />
-                </div>
-                <div class="item-move" style="--position: 3">
-                    <img src="img/taro.jpg" alt="" />
-                </div>
-                <div class="item-move" style="--position: 4">
-                    <img src="img/matah.jpg" alt="" />
-                </div>
-                <div class="item-move" style="--position: 5">
-                    <img src="img/orange_coffe.jpg" alt="" />
-                </div>
-                <div class="item-move" style="--position: 6">
-                    <img src="img/capuchino.jpg" alt="" />
-                </div>
-            </div>
-    </section>
-
-    <div class="halaman">
-        <h1>anda berada di halaman <h1 style="font-family: Fredericka the Great, serif; font-style: italic; font-weight: 400;">MAKANAN</h1>
-        </h1>
-        <p>pilih menu yang anda inginkan</p>
-    </div>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Product Grid -->
-        <section id="products" class="products">
-            <nav id="nav" class="flex justify-end gap-4">
-                <a href="index.html" title="Search" id="drink">
-                    <i class="fas fa-mug-hot"></i>
-                    <p>drink</p>
-                </a>
-                <a href="food.html" title="Shopping Cart" id="food">
-                    <i class="fas fa-utensils"></i>
-                    <p>food</p>
-                </a>
-            </nav>
-            <h1>Main Course</h1>
-            <div class="product-grid">
-                <!-- Product Item -->
-                <div class="product-item">
-                    <img alt="Nasi Goreng" src="img/nasi_goreng.jpg" />
-                    <h3>Nasi Goreng</h3>
-                    <p></p>
-                    <p class="price">Rp15.000</p>
-                    <button id="btnmenu" class="add-to-cart">
-                        Detail
-                    </button>
-                    <div class="jumblah">
-                        <button class="minus">-</button>
-                        <input type="text" value="0" class="quantity">
-                        <button class="plus">+</button>
-                        <button class="cart" data-img="img/nasi_goreng.jpg" data-name="nasi_goreng">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
-                </div>
-                <!--box deskripsi menu-->
-                <div class="description">
-                    <img src="img/nasi_goreng.jpg" alt="nasi_goreng" />
-                    <h3>Nasi Goreng</h3>
-                    <p>
-                        (penjelasan product)
-                    </p>
-                    <button class="btndes">O K</button>
-                </div>
-
-                <div class="product-item">
-                    <img alt="Chicken Honey" src="img/chicken_honey.jpg" />
-                    <h3>Chicken Honey</h3>
-                    <p></p>
-                    <p class="price">Rp15.500</p>
-                    <button id="btnmenu" class="add-to-cart">
-                        Detail
-                    </button>
-                    <div class="jumblah">
-                        <button class="minus">-</button>
-                        <input type="text" value="0" class="quantity">
-                        <button class="plus">+</button>
-                        <button class="cart" data-img="img/chicken_honey.jpg" data-name="chicken_honey">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
-                </div>
-                <!--box deskripsi menu-->
-                <div class="description">
-                    <img src="img/chicken_honey.jpg" alt="" />
-                    <h3>Chicken Honey</h3>
-                    <p>
-                        (penjelasan product)
-                    </p>
-                    <button class="btndes">O K</button>
-                </div>
-
-                <div class="product-item">
-                    <img alt="Ayam Sambal Matah" src="img/matah.jpg" />
-                    <h3>matah</h3>
-                    <p></p>
-                    <p class="price">Rp15.500</p>
-                    <button id="btnmenu" class="add-to-cart">
-                        Detail
-                    </button>
-                    <div class="jumblah">
-                        <button class="minus">-</button>
-                        <input type="text" value="0" class="quantity">
-                        <button class="plus">+</button>
-                        <button class="cart" data-img="img/matah.jpg" data-name="Ayam Sambal Matah">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
-                </div>
-                <!--box deskripsi menu-->
-                <div class="description">
-                    <img src="img/matah.jpg" alt="" />
-                    <h3>Ayam Sambal Matah</h3>
-                    <p>
-                        (penjelasan product)
-                    </p>
-                    <button class="btndes">O K</button>
-                </div>
-            </div>
-
-            <h1>Snack</h1>
-            <div class="product-grid">
-                <!-- Product Item -->
-                <div class="product-item">
-                    <img alt="Dimsum" src="img/dimsum.jpg" />
-                    <h3>Dimsum</h3>
-                    <p></p>
-                    <p class="price">Rp15.000</p>
-                    <button id="btnmenu" class="add-to-cart">
-                        Detail
-                    </button>
-                    <div class="jumblah">
-                        <button class="minus">-</button>
-                        <input type="text" value="0" class="quantity">
-                        <button class="plus">+</button>
-                        <button class="cart" data-img="img/dimsum.jpg" data-name="Dimsul">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
-                </div>
-                <!--box deskripsi menu-->
-                <div class="description">
-                    <img src="img/dimsum.jpg" alt="Dimsum" />
-                    <h3>Dimsum</h3>
-                    <p>
-                        (penjelasan product)
-                    </p>
-                    <button class="btndes">O K</button>
-                </div>
-
-                <div class="product-item">
-                    <img alt="Risol" src="img/risol.jpg" />
-                    <h3>Risol</h3>
-                    <p></p>
-                    <p class="price">Rp15.500</p>
-                    <button id="btnmenu" class="add-to-cart">
-                        Detail
-                    </button>
-                    <div class="jumblah">
-                        <button class="minus">-</button>
-                        <input type="text" value="0" class="quantity">
-                        <button class="plus">+</button>
-                        <button class="cart" data-img="img/risol.jpg" data-name="Risol">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
-                </div>
-                <!--box deskripsi menu-->
-                <div class="description">
-                    <img src="img/risol.jpg" alt="" />
-                    <h3>Risol</h3>
-                    <p>
-                        (penjelasan product)
-                    </p>
-                    <button class="btndes">O K</button>
-                </div>
-
-                <div class="product-item">
-                    <img alt="Tahu" src="img/tahu.jpg" />
-                    <h3>Tahu</h3>
-                    <p></p>
-                    <p class="price">Rp14.800</p>
-                    <button class="add-to-cart">
-                        Detail
-                    </button>
-                    <div class="jumblah">
-                        <button class="minus">-</button>
-                        <input type="text" value="0" class="quantity">
-                        <button class="plus">+</button>
-                        <button class="cart" data-img="img/tahu.jpg" data-name="Tahu">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
-                </div>
-                <!--box deskripsi menu-->
-                <div class="description">
-                    <img src="img/tahu.jpg" alt="" />
-                    <h3>Tahu</h3>
-                    <p>
-                        (penjelasan product)
-                    </p>
-                    <button class="btndes">O K</button>
-                </div>
-
-                <div class="product-item">
-                    <img alt="Sate Thaichan" src="img/sate.jpg" />
-                    <h3>Sate Thaichan</h3>
-                    <p></p>
-                    <p class="price">Rp14.800</p>
-                    <button class="add-to-cart">
-                        Detail
-                    </button>
-                    <div class="jumblah">
-                        <button class="minus">-</button>
-                        <input type="text" value="0" class="quantity">
-                        <button class="plus">+</button>
-                        <button class="cart" data-img="img/sate.jpg" data-name="Sate Thaichan">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
-                </div>
-                <!--box deskripsi menu-->
-                <div class="description">
-                    <img src="img/sate.jpg" alt="" />
-                    <h3>Sate Thaichan</h3>
-                    <p>
-                        (penjelasan product)
-                    </p>
-                    <button class="btndes">O K</button>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-logo">
-                <img id="logofoot" alt="Logo Coffee Shop" src="img/logo.png" />
-                <p>© BimaTech<br />CoffeeShop, 2025</p>
-            </div>
-            <div class="footer-links">
-                <ul>
-                    <li><a href="about.html">Tentang Kami</a></li>
-                    <li><a href="#">Kopi Biji</a></li>
-                    <li><a href="#">Pembayaran</a></li>
-                    <li><a href="#">Pengiriman</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <a href="https://wa.me/6285246196402?text=Halo,%20kak%20saya..." target="_blank">(+62)85246196402</a>
-            </div>
-            <div class="footer-social">
-                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/m.bimarizki/" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const addToCartButtons = document.querySelectorAll(".cart");
-            const cartBadge = document.getElementById("cart-badge");
-
-            // Fungsi untuk memperbarui badge keranjang
-            function updateCartBadge() {
-                const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-                cartBadge.textContent = cartItems.length; // Update jumlah item di badge
-
-                // Sembunyikan badge jika jumlah item adalah 0
-                if (cartItems.length === 0) {
-                    cartBadge.style.display = "none";
-                } else {
-                    cartBadge.style.display = "block";
-                }
-            }
-
-            // Update badge saat halaman dimuat
-            updateCartBadge();
-
-            // Add event listener to all "+" buttons
-            addToCartButtons.forEach((button) => {
-                button.addEventListener("click", () => {
-                    const productItem = button.closest(".product-item");
-                    const imgSrc = button.getAttribute("data-img"); // Get the image source
-                    const itemName = button.getAttribute("data-name"); // Get the item name
-                    const quantity = parseInt(productItem.querySelector(".quantity").value); // Get the quantity
-                    const price = parseInt(productItem.querySelector(".price").textContent.replace("Rp", "").replace(".", "")); // Get the price
-
-                    // Validate quantity
-                    if (isNaN(quantity) || quantity <= 0) {
-                        alert("Jumlah barang harus lebih dari 0!");
-                        return;
-                    }
-
-                    // Create a cart item object
-                    const cartItem = {
-                        imgSrc: imgSrc,
-                        itemName: itemName,
-                        quantity: quantity,
-                        price: price, // Add price to the cart item
-                    };
-
-                    // Retrieve existing cart items from localStorage
-                    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-                    // Add the new item to the cart
-                    cartItems.push(cartItem);
-
-                    // Save the updated cart back to localStorage
-                    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-                    // Update the cart badge
-                    updateCartBadge();
-
-                    // Animate the image to the cart
-                    animateImageToCart(imgSrc);
-                });
-            });
-
-            // Function to animate the image to the cart
-            function animateImageToCart(imgSrc) {
-                const img = document.createElement("img");
-                img.src = imgSrc;
-                img.style.position = "fixed";
-                img.style.width = "50px";
-                img.style.height = "50px";
-                img.style.borderRadius = "50%";
-                img.style.transition = "all 1s ease";
-                document.body.appendChild(img);
-
-                const cartIcon = document.querySelector(".fa-shopping-cart");
-                const cartIconRect = cartIcon.getBoundingClientRect();
-
-                const imgRect = img.getBoundingClientRect();
-                const startX = imgRect.left;
-                const startY = imgRect.top;
-                const endX = cartIconRect.left + cartIconRect.width / 2 - imgRect.width / 2;
-                const endY = cartIconRect.top + cartIconRect.height / 2 - imgRect.height / 2;
-
-                img.style.left = `${startX}px`;
-                img.style.top = `${startY}px`;
-
-                setTimeout(() => {
-                    img.style.left = `${endX}px`;
-                    img.style.top = `${endY}px`;
-                    img.style.opacity = "1";
-                }, 10);
-
-                setTimeout(() => {
-                    img.remove();
-                }, 1010);
-            }
-        });
-    </script>
-
-    <script>
-        let slideIndex = 0;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides((slideIndex += n));
-        }
-
-        function currentSlide(n) {
-            showSlides((slideIndex = n));
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("slide");
-            if (n > slides.length - 1) {
-                slideIndex = 0;
-            }
-            if (n < 0) {
-                slideIndex = slides.length - 1;
-            }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
-            }
-            slides[slideIndex].classList.add("active");
-        }
-
-        // Optional: Automatic slideshow
-        let autoSlideInterval;
-
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(() => {
-                plusSlides(1);
-            }, 3000); // Change image every 3 seconds
-        }
-
-        function stopAutoSlide() {
-            clearInterval(autoSlideInterval);
-        }
-
-        // Start auto slide on page load (you can adjust or remove this).
-        startAutoSlide();
-
-        // You can add event listeners to stop/start auto slideshow on hover, etc.
-        const slideshowContainer = document.querySelector(".slideshow-container");
-
-        slideshowContainer.addEventListener("mouseenter", stopAutoSlide); // Stop on mouse enter
-        slideshowContainer.addEventListener("mouseleave", startAutoSlide); // Start on mouse leave
-    </script>
-
-    <script>
-        // Loading spinner
-        window.addEventListener("load", () => {
-            const spinner = document.getElementById("loading-spinner");
-            spinner.style.display = "none";
-        });
-    </script>
-
-    <!--input search-->
-    <script>
-        document
-            .getElementById("search-button")
-            .addEventListener("click", function () {
-                const searchInput = document.getElementById("search-input");
-                searchInput.classList.toggle("active");
-                if (searchInput.classList.contains("active")) {
-                    searchInput.focus(); // Fokus ke input saat muncul
-                }
-            });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const searchInput = document.getElementById("search-input");
-            const productItems = document.querySelectorAll(".product-item");
-
-            // Fungsi untuk melakukan pencarian
-            const searchProducts = () => {
-                const query = searchInput.value.trim().toLowerCase();
-
-                productItems.forEach((item) => {
-                    const productName = item
-                        .querySelector("h3")
-                        .textContent.toLowerCase();
-                    item.style.display = productName.includes(query) ? "block" : "none";
-                });
-            };
-
-            // Event listener untuk input pencarian
-            searchInput.addEventListener("input", searchProducts);
-        });
-    </script>
-
-    <script>
-        // Mendapatkan referensi ke tombol dan elemen yang akan disembunyikan
-        const hideButton = document.getElementById("confirm");
-        const myElement = document.getElementById("notif");
-
-        // Menambahkan event listener ke tombol
-        hideButton.addEventListener("click", function () {
-            // Mengatur display elemen menjadi 'none'
-            myElement.style.display = "none";
-        });
-    </script>
-
-    <script>
-        // Mendapatkan referensi ke tombol dan elemen yang akan disembunyikan
-        const hideBtn = document.getElementById("btnmenu");
-        const Element = document.querySelector(".description");
-
-        // Menambahkan event listener ke tombol
-        hideBtn.addEventListener("click", function () {
-            // Mengatur display elemen menjadi 'none'
-            Element.style.display = "inline";
-        });
-    </script>
-
-    <script>
-        // Mendapatkan referensi ke tombol dan elemen yang akan disembunyikan
-        const hideButon = document.querySelector(".btndes");
-        const Elements = document.querySelector(".description");
-
-        // Menambahkan event listener ke tombol
-        hideButon.addEventListener("click", function () {
-            // Mengatur display elemen menjadi 'none'
-            Elements.style.display = "none";
-        });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Mendapatkan semua tombol "Detail"
-            const detailButtons = document.querySelectorAll(".add-to-cart");
-
-            // Mendapatkan semua elemen deskripsi
-            const descriptions = document.querySelectorAll(".description");
-
-            // Menambahkan event listener ke setiap tombol "Detail"
-            detailButtons.forEach((button, index) => {
-                button.addEventListener("click", () => {
-                    // Menampilkan deskripsi yang sesuai
-                    descriptions[index].style.display = "block";
-                });
-            });
-
-            // Menambahkan event listener ke setiap tombol "OK" pada deskripsi
-            const okButtons = document.querySelectorAll(".btndes");
-            okButtons.forEach((button, index) => {
-                button.addEventListener("click", () => {
-                    // Menutup deskripsi yang sesuai
-                    descriptions[index].style.display = "none";
-                });
-            });
-        });
-    </script>
-
-    <!--script diseble masukkan keranjang-->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const minusButtons = document.querySelectorAll(".minus");
-            const plusButtons = document.querySelectorAll(".plus");
-            const cartButtons = document.querySelectorAll(".cart");
-
-            // Fungsi untuk memeriksa dan mengatur status tombol keranjang
-            function updateCartButtonState(input, cartButton) {
-                if (parseInt(input.value) === 0) {
-                    cartButton.disabled = true; // Nonaktifkan tombol jika nilai input adalah 0
-                } else {
-                    cartButton.disabled = false; // Aktifkan tombol jika nilai input lebih dari 0
-                }
-            }
-
-            // Fungsi untuk tombol minus
-            minusButtons.forEach((button) => {
-                button.addEventListener("click", () => {
-                    const input = button.nextElementSibling; // Ambil input yang bersebelahan
-                    let value = parseInt(input.value); // Ambil nilai input dan ubah ke integer
-                    if (value > 0) { // Pastikan nilai tidak kurang dari 1
-                        input.value = value - 1; // Kurangi nilai
-                    } else {
-                        input.value = 0; // Set nilai ke 0 jika kurang dari 1
-                    }
-                    // Perbarui status tombol keranjang
-                    const cartButton = button.parentElement.querySelector(".cart");
-                    updateCartButtonState(input, cartButton);
-                });
-            });
-
-            // Fungsi untuk tombol plus
-            plusButtons.forEach((button) => {
-                button.addEventListener("click", () => {
-                    const input = button.previousElementSibling; // Ambil input yang bersebelahan
-                    let value = parseInt(input.value); // Ambil nilai input dan ubah ke integer
-                    input.value = value + 1; // Tambahkan nilai
-                    // Perbarui status tombol keranjang
-                    const cartButton = button.parentElement.querySelector(".cart");
-                    updateCartButtonState(input, cartButton);
-                });
-            });
-
-            // Inisialisasi status tombol keranjang saat halaman dimuat
-            cartButtons.forEach((cartButton) => {
-                const input = cartButton.parentElement.querySelector(".quantity");
-                updateCartButtonState(input, cartButton);
-            });
-        });
-    </script>
-
-
-</body>
-
-</html>
+ /* General Styles */
+ body {
+     font-family: "Roboto", sans-serif;
+     background-color: #f5f0e6;
+     margin: 0;
+     padding: 0;
+     overflow-x: hidden;
+ }
+
+ /* Header Styles */
+ .header {
+     background-color: black;
+     color: white;
+     padding: 1rem 0;
+     position: sticky;
+     top: 0;
+     z-index: 888;
+ }
+
+ .container {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 1rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ .logo-container {
+     display: flex;
+     align-items: center;
+ }
+
+ .logo-container img {
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+     border: 1px solid white;
+     margin-right: 1rem;
+ }
+
+ .logo-container span {
+     font-size: 1.5rem;
+     font-weight: bold;
+ }
+
+ .nav {
+     display: flex;
+     gap: 2rem;
+     background-color: transparent;
+ }
+
+ .nav i {
+     cursor: pointer;
+     color: white;
+ }
+
+ .nav a:hover {
+     background-color: transparent;
+     color: black;
+     border: 1px solid white;
+ }
+
+ #nav {
+     display: flex;
+     justify-content: flex-end;
+     gap: 16px;
+     margin-bottom: 10px;
+     margin-right: 20px;
+ }
+
+ #nav a {
+     border-radius: 10px;
+     padding: 5px 20px;
+     border: 1px solid white;
+     text-decoration: none;
+     color: black;
+     font-size: 250%;
+ }
+
+ #nav #food {
+     background-image: url("img/kopi.jpg");
+     background-size: cover;
+     background-position: 50% 50%;
+     pointer-events: none;
+ }
+
+ #nav #drink {
+     background-color: darkgrey;
+     color: black;
+     opacity: 0.3;
+ }
+
+ .nav a[href="keranjang.html"] {
+     position: relative;
+ }
+
+ .cart-badge {
+     position: absolute;
+     top: -10px;
+     right: -10px;
+     background-color: red;
+     color: white;
+     border-radius: 50%;
+     padding: 2px 6px;
+     font-size: 12px;
+     font-weight: bold;
+ }
+
+ /* Form search input */
+ .search-container {
+     position: relative;
+ }
+
+ #search-button {
+     background: none;
+     border: none;
+     color: white;
+     cursor: pointer;
+     font-size: 16px;
+ }
+
+ .search-input {
+     width: 0;
+     padding: 0;
+     border: none;
+     outline: none;
+     background-color: #575757;
+     color: white;
+     transition: width 0.3s ease, padding 0.3s ease;
+     position: absolute;
+     right: 30px;
+     top: 50%;
+     transform: translateY(-50%);
+     opacity: 0;
+     visibility: hidden;
+ }
+
+ .search-input.active {
+     width: 200px;
+     padding: 5px 10px;
+     opacity: 1;
+     visibility: visible;
+ }
+
+ /* Loading Section Styles */
+ .loading-spinner {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(255, 255, 255, 0.8);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     z-index: 1000;
+ }
+
+ .spinner {
+     border: 4px solid #f3f3f3;
+     border-top: 4px solid black;
+     border-radius: 50%;
+     width: 40px;
+     height: 40px;
+     animation: spin 1s linear infinite;
+ }
+
+ @keyframes spin {
+     0% {
+         transform: rotate(0deg);
+     }
+
+     100% {
+         transform: rotate(360deg);
+     }
+ }
+
+ .notif {
+     position: fixed;
+     /* Change to fixed to keep it centered on the screen */
+     top: 50%;
+     /* Center vertically */
+     left: 50%;
+     /* Center horizontally */
+     transform: translate(-50%, -50%);
+     /* Adjust position to truly center */
+     width: 90%;
+     height: auto;
+     z-index: 998;
+     border: 1px black solid;
+     border-radius: 5%;
+     background-image: url("img/biji.jpeg");
+     background-size: cover;
+     display: none;
+ }
+
+ .notif .notifdes {
+     padding: 10%;
+     text-align: center;
+     font-weight: bold;
+     font-size: 1rem;
+     background-color: rgba(30, 30, 30, 12%);
+     backdrop-filter: blur(3px);
+     color: white;
+ }
+
+ .notif .notifdes h3 {
+     font-size: 1.5rem;
+     margin-bottom: 0.5rem;
+ }
+
+ .notifdes button {
+     font-size: 1.5rem;
+     background-color: black;
+     width: 30%;
+     border: 1px white solid;
+     border-radius: 20%;
+     margin-top: 1rem;
+ }
+
+ .nav #reservasi {
+     cursor: pointer;
+     color: white;
+ }
+
+ .nav #reservasi:hover {
+     background-color: white;
+     color: black;
+ }
+
+ .halaman {
+     justify-content: center;
+     align-items: center;
+     display: flex;
+     flex-direction: column;
+     margin-top: 5%;
+     font-size: 1.5rem;
+     font-weight: bold;
+ }
+
+ /* Hero Section Styles */
+ .hero {
+     position: relative;
+ }
+
+ .hero span {
+     display: block;
+     text-align: center;
+     font-size: 1.5rem;
+     font-weight: bold;
+     color: black;
+ }
+
+ .slider-move {
+     margin-top: 5rem;
+     width: 100%;
+     height: auto;
+     overflow: hidden;
+     position: relative;
+ }
+
+ .list-move {
+     width: calc(var(--width) * var(--quantity) * 2);
+     height: auto;
+     display: flex;
+     animation: slider var(--duration) linear infinite;
+ }
+
+ .item-move {
+     width: var(--width);
+     height: var(--height);
+     flex-shrink: 0;
+     transition: filter 0.3s ease;
+ }
+
+ .item-move img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     padding: 3%;
+     border-radius: 15%;
+ }
+
+ /* Animation settings */
+ .slider-move {
+     --duration: 20s;
+ }
+
+ /* Greyscale effect on hover */
+ .item-move:hover img {
+     filter: grayscale(100%);
+ }
+
+ /* Pause animation on hover */
+ .slider-move:hover .list-move {
+     animation-play-state: paused;
+ }
+
+ @keyframes slider {
+     0% {
+         transform: translateX(0);
+     }
+
+     100% {
+         transform: translateX(calc(var(--width) * var(--quantity) * -1));
+     }
+ }
+
+ main {
+     background-image: url(img/papan.jpeg);
+     background-size: 100% 50%;
+ }
+
+ /* Product Grid Styles */
+ .products {
+     padding: 2rem 0;
+     margin-top: 2rem;
+ }
+
+ .product-grid {
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     gap: 1rem;
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 1rem;
+ }
+
+ .jumblah {
+     margin-top: 2rem;
+ }
+
+ .jumblah button.minus,
+ .jumblah button.plus {
+     background-color: black;
+     /* Warna latar belakang tombol */
+     color: white;
+     /* Warna teks tombol */
+     border: none;
+     /* Menghilangkan border */
+     border-radius: 50%;
+     /* Membuat tombol bulat */
+     width: 20px;
+     /* Lebar tombol */
+     height: 20px;
+     /* Tinggi tombol */
+     font-size: 12px;
+     /* Ukuran font */
+     padding: 0;
+     /* Menghilangkan padding */
+     cursor: pointer;
+     /* Mengubah kursor saat dihover */
+ }
+
+ .jumblah input.quantity {
+     width: 40px;
+     /* Lebar input */
+     text-align: center;
+     /* Pusatkan teks di input */
+     border: 1px solid black;
+     /* Garis tepi input */
+     border-radius: 5px;
+     /* Sudut melengkung input */
+     padding: 2px;
+     /* Ruang dalam input */
+     font-size: 12px;
+     /* Ukuran font input */
+ }
+
+ .cart {
+     margin-left: 1rem;
+     padding: 0.5rem;
+     border: 1px solid black;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ /* Gaya untuk tombol keranjang yang dinonaktifkan */
+ .cart:disabled {
+     background-color: #cccccc;
+     /* Warna latar belakang abu-abu */
+     color: #666666;
+     /* Warna teks abu-abu gelap */
+     cursor: not-allowed;
+     /* Mengubah kursor menjadi tanda "tidak diizinkan" */
+     opacity: 0.7;
+     /* Mengurangi opacity untuk efek "tidak aktif" */
+     border: 1px solid #999999;
+     /* Garis tepi abu-abu */
+ }
+
+ /* Gaya untuk tombol keranjang yang aktif */
+ .cart:not(:disabled) {
+     background-color: black;
+     /* Warna latar belakang hitam */
+     color: white;
+     /* Warna teks putih */
+     cursor: pointer;
+     /* Kursor pointer */
+     opacity: 1;
+     /* Opacity penuh */
+     border: 1px solid black;
+     /* Garis tepi hitam */
+ }
+
+ .description {
+     position: fixed;
+     /* Membuat elemen tetap di posisi yang sama di layar */
+     top: 50%;
+     /* Menempatkan elemen di tengah vertikal */
+     left: 50%;
+     /* Menempatkan elemen di tengah horizontal */
+     transform: translate(-50%, -50%);
+     /* Menggeser elemen ke tengah */
+     z-index: 999;
+     /* Memastikan elemen berada di atas elemen lain */
+     width: 50%;
+     /* Lebar elemen */
+     height: auto;
+     /* Tinggi elemen menyesuaikan konten */
+     background-color: white;
+     /* Warna latar belakang */
+     text-align: center;
+     /* Teks di tengah */
+     font-weight: bold;
+     /* Teks tebal */
+     border: 1px black solid;
+     /* Garis tepi */
+     border-radius: 15px;
+     /* Sudut melengkung */
+     padding: 0.5rem;
+     /* Ruang dalam */
+     display: none;
+     /* Awalnya disembunyikan */
+ }
+
+ .description img {
+     border-radius: 20px;
+     /* Sudut melengkung untuk gambar */
+ }
+
+ .description button {
+     color: white;
+     /* Warna teks tombol */
+     background-color: black;
+     /* Warna latar belakang tombol */
+     width: 20%;
+     /* Lebar tombol */
+     height: 50%;
+     /* Tinggi tombol */
+     margin-bottom: 10px;
+     /* Ruang bawah */
+     border-radius: 5px;
+     /* Sudut melengkung */
+ }
+
+ main h1 {
+     text-align: start;
+     font-size: 2rem;
+     font-weight: 400;
+     margin-top: 1rem;
+     font-family: Fredericka the Great;
+     color: white;
+ }
+
+ .product-item {
+     background-image: url("img/kopi.jpg");
+     padding: 0.5rem;
+     border-radius: 0.5rem;
+     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+     text-align: center;
+ }
+
+ .product-item img {
+     width: 100%;
+     height: auto;
+     object-fit: cover;
+     margin-bottom: 1rem;
+     padding: 0.5rem 1rem;
+     border-radius: 15%;
+ }
+
+ .product-item h3 {
+     font-weight: bold;
+     margin-bottom: 0.5rem;
+     background-color: black;
+     color: white;
+     border-radius: 9999px;
+ }
+
+ .product-item .price {
+     font-weight: bold;
+     margin-bottom: 1rem;
+     background-color: black;
+     color: white;
+     border-radius: 9999px;
+ }
+
+ .product-item button {
+     background-color: black;
+     color: white;
+     padding: 0.5rem 1rem;
+     border-radius: 9999px;
+     cursor: pointer;
+ }
+
+ .product-item {
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+
+ .product-item:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+ }
+
+ /* Footer Styles */
+ .footer {
+     background-color: black;
+     color: white;
+     padding: 2rem 0;
+ }
+
+ .footer .container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     gap: 2rem;
+ }
+
+ .footer-logo img {
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+     border: 1px solid white;
+     margin-bottom: 1rem;
+ }
+
+ .footer-links ul {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+ }
+
+ .footer-links ul li {
+     margin-bottom: 0.5rem;
+ }
+
+ .footer-links ul li a {
+     color: white;
+     text-decoration: none;
+ }
+
+ .footer-links ul li a:hover {
+     color: #a0aec0;
+ }
+
+ .footer-contact p {
+     margin-bottom: 0.5rem;
+ }
+
+ .footer-social a {
+     position: relative;
+     margin: 3px;
+ }
+
+ /* Responsive Styles */
+ @media (max-width: 1024px) {
+     .product-grid {
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     .product-item {
+         padding: 0.5rem;
+     }
+
+     .product-item img {
+         padding: 0.5rem;
+     }
+
+     .product-item h3 {
+         font-size: 1rem;
+     }
+
+     .product-item p {
+         font-size: 0.875rem;
+     }
+
+     .product-item .price {
+         font-size: 0.875rem;
+     }
+
+     .cart {
+         margin: 0.5rem;
+     }
+
+     .products p {
+         font-size: 1rem;
+     }
+
+     .footer .container {
+         flex-direction: column;
+         gap: 1rem;
+         text-align: center;
+     }
+
+     .footer-logo img {
+         align-self: center;
+         margin: 0 auto;
+     }
+
+     .footer-social {
+         text-align: center;
+         margin: 0 5px;
+         font-size: 1.5rem;
+     }
+
+     .footer-social a:hover {
+         color: #a0aec0;
+     }
+
+     .footer-contact a:hover {
+         color: #a0aec0;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .notif {
+         width: 90%;
+     }
+
+     .reservasi {
+         width: 90%;
+         padding: 10px;
+     }
+
+     .reservasi h1 {
+         font-size: 20px;
+     }
+
+     .reservasi input,
+     .reservasi button {
+         font-size: 12px;
+         padding: 8px;
+     }
+
+     .product-grid {
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     .product-item {
+         padding: 0.5rem;
+     }
+
+     .product-item img {
+         padding: 0.5rem;
+     }
+
+     .product-item h3 {
+         font-size: 1rem;
+     }
+
+     .product-item p {
+         font-size: 0.875rem;
+     }
+
+     .product-item .price {
+         font-size: 0.875rem;
+     }
+
+     .cart {
+         margin: 0.5rem;
+     }
+
+     .description {
+         width: 80%;
+     }
+
+     .description img {
+         width: 100%;
+     }
+
+     .description button {
+         width: 30%;
+     }
+
+     .products p {
+         font-size: 1rem;
+     }
+
+     .footer .container {
+         flex-direction: column;
+         gap: 1rem;
+         text-align: center;
+     }
+
+     .footer-logo img {
+         align-self: center;
+         margin: 0 auto;
+     }
+
+     .footer-social {
+         text-align: center;
+         margin: 0 5px;
+         font-size: 1.5rem;
+     }
+
+     .footer-social a:hover {
+         color: #a0aec0;
+     }
+
+     .footer-contact a:hover {
+         color: #a0aec0;
+     }
+ }
+
+ @media (min-width: 768px) {
+     .product-grid {
+         grid-template-columns: repeat(3, 1fr);
+     }
+ }
