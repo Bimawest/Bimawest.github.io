@@ -19,6 +19,119 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 
+<style>
+  .navigation {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    background-color: transparent;
+    border-radius: 10px;
+  }
+  
+  .navigation ul {
+    display: flex;
+    width: 300px;
+  }
+  
+  .navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+  }
+  
+  .navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    -webkit-tap-highlight-color: transparent;
+    padding-left: 170px;
+    padding-right: 1px;
+  }
+  
+  .navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.8em;
+    text-align: center;
+    transition: 0.5s;
+    color: #efff;
+  }
+  
+  .navigation ul li.active a .icon {
+    transform: translateY(-35px);
+  }
+  
+  .navigation ul li a .text {
+    position: absolute;
+    color: #efff;
+    font-weight: 400;
+    font-size: 0.7em;
+    letter-spacing: 0.05rem;
+    transition: 0.5s;
+    opacity: 1;
+    transform: translateY(20px);
+    text-transform: capitalize;
+  }
+  
+  .navigation ul li.active a .text {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  
+  .indicator {
+    position: absolute;
+    top: -36px;
+    left: 208px;
+    width: 60px;
+    height: 60px;
+    background-image: url('kopi.jpg');
+    background-size: cover;
+    border-radius: 50%;
+    border: 6px solid #f5f0e6;
+    transition: 0.5s;
+  }
+  
+  .indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 30px;
+    box-shadow: 1px -10px 0 0 #f5f0e6;
+  }
+  
+  .indicator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 30px;
+    box-shadow: -1px -10px 0 0 #f5f0e6;
+  }
+  
+  .navigation ul li:nth-child(1).active~.indicator {
+    transform: translateX(calc(70px *0));
+  }
+  
+  .navigation ul li:nth-child(2).active~.indicator {
+    transform: translateX(calc(70px *1));
+  }
+</style>
+
 <body>
     <div id="loading-spinner" class="loading-spinner">
         <div class="spinner"></div>
@@ -111,17 +224,31 @@
     <!-- Main Content -->
     <main>
         <!-- Product Grid -->
+        
+        <div class="navigation">
+    <ul>
+      <li class="list active">
+        <a href="index.html">
+          <span class="icon">
+            <ion-icon name="cafe"></ion-icon>
+          </span>
+          <span class="text">drink</span>
+        </a>
+      </li>
+      
+      <li class="list">
+        <a href="food.html">
+          <span class="icon">
+            <ion-icon name="restaurant"></ion-icon>
+          </span>
+          <span class="text">food</span>
+        </a>
+      </li>
+      <div class="indicator"></div>
+    </ul>
+            </div>
+        
         <section id="products" class="products">
-            <nav id="nav" class="flex justify-end gap-4">
-                <a href="index.html" title="Search" id="drink">
-                    <i class="fas fa-mug-hot"></i>
-                    <p>drink</p>
-                </a>
-                <a href="food.html" title="Shopping Cart" id="food">
-                    <i class="fas fa-utensils"></i>
-                    <p>food</p>
-                </a>
-            </nav>
             <div class="menu">
                 <h1>Espresso Based</h1>
                 <div class="product-grid">
@@ -644,6 +771,15 @@
     </footer>
 
     <script>
+    const list = document.querySelectorAll('.list');
+    function active(){
+      list.forEach((item) => item.classList.remove('active'));
+      this.classList.add('active');
+    }
+    list.forEach((item) => item.addEventListener('click', active));
+  </script>
+    
+    <script>
         document.addEventListener("DOMContentLoaded", () => {
             const addToCartButtons = document.querySelectorAll(".cart");
             const cartBadge = document.getElementById("cart-badge");
@@ -799,23 +935,25 @@
     </script>
 
     <script>
-        // Menampilkan notif dan backoff saat halaman dimuat
-        window.addEventListener("load", () => {
-            const notif = document.getElementById("notif");
-            const backoff = document.getElementById("backoff");
+      // Menampilkan notif dan backoff saat halaman dimuat
+      document.addEventListener("DOMContentLoaded", () => {
+    const notif = document.getElementById("notif");
+    const backoff = document.getElementById("backoff");
+    const confirmButton = document.getElementById("confirm");
+    const hasShownNotification = sessionStorage.getItem("notificationShown");
 
-            notif.style.display = "block";
-            backoff.style.display = "block";
-        });
-
-        // Menutup notif dan backoff saat tombol "OK" diklik
-        document.getElementById("confirm").addEventListener("click", () => {
-            const notif = document.getElementById("notif");
-            const backoff = document.getElementById("backoff");
-
-            notif.style.display = "none";
-            backoff.style.display = "none";
-        });
+    if (!hasShownNotification) {
+      notif.style.display = "block";
+      backoff.style.display = "block";
+      sessionStorage.setItem("notificationShown", "true");
+    }
+    
+    // Menutup notif dan backoff saat tombol "OK" diklik
+    confirmButton.addEventListener("click", () => {
+      notif.style.display = "none";
+      backoff.style.display = "none";
+    });
+  });
     </script>
 
     <script>
