@@ -22,40 +22,38 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 
-<style>
-    .navigation {
-        position: relative;
-        width: 100%;
-        height: 70px;
-        background-color: transparent;
-        border-radius: 10px;
-        margin-top: 100px;
-    }
+<style>.navigation {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    background-color: transparent;
+    border-radius: 10px;
+}
 
-    .navigation ul {
-        display: flex;
-        width: 300px;
-    }
+.navigation ul {
+    display: flex;
+    width: 300px;
+}
 
-    .navigation ul li {
-        position: relative;
-        list-style: none;
-        width: 70px;
-        height: 70px;
-        z-index: 1;
-    }
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+}
 
-    .navigation ul li a {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        font-weight: 500;
-        -webkit-tap-highlight-color: transparent;
-    }
+.navigation ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    color: #efff;
+    transition: color 0.5s;
+}
+    
 
     .navigation ul li a .icon {
         position: relative;
@@ -69,7 +67,7 @@
 
     /* Efek awal untuk ikon food (naik) */
     .navigation ul li:nth-child(2) a .icon#food {
-        transform: translateY(-35px);
+        transform: translateY(-10px);
     }
 
     /* Efek awal untuk ikon drink (turun) */
@@ -84,12 +82,12 @@
 
     /* Efek khusus untuk ikon food saat aktif (menimpah aturan di atas) */
     .navigation ul li:nth-child(2).active a .icon#food {
-        transform: translateY(-35px); /* Lebih tinggi saat aktif */
+        transform: translateY(-45px); /* Lebih tinggi saat aktif */
     }
 
     /* Efek khusus untuk ikon drink saat aktif (menimpah aturan di atas) */
     .navigation ul li:nth-child(1).active a .icon#drink {
-        transform: translateY(-10px); /* Naik lebih sedikit saat aktif (dari posisi turun) */
+        transform: translateY(-25px); /* Naik lebih sedikit saat aktif (dari posisi turun) */
     }
 
     .navigation ul li a .text {
@@ -108,19 +106,19 @@
         opacity: 1;
         transform: translateY(10px);
     }
-
-    .indicator {
-        position: absolute;
-        top: -36px;
-        left: 08px;
-        width: 60px;
-        height: 60px;
-        background-image: url('img/kopi.jpg');
-        background-size: cover;
-        border-radius: 50%;
-        border: 6px solid #f5f0e6;
-        transition: 0.5s;
-    }
+.indicator {
+    position: absolute;
+    top: -36px;
+    left: 08px;
+    width: 60px;
+    height: 60px;
+    background-image: url('img/kopi.jpg');
+    background-size: cover;
+    border-radius: 50%;
+    border: 6px solid #f5f0e6;
+    transition: transform 0.5s ease; /* Transisi untuk pergerakan indikator */
+}
+    
 
     .indicator::before {
         content: '';
@@ -235,27 +233,26 @@
         <!-- Product Grid -->
 
         <div class="navigation">
-            <ul>
-                <li class="list active">
-                    <a href="index.html">
-                        <span class="icon" id="drink">
-                            <ion-icon name="cafe"></ion-icon>
-                        </span>
-                        <span class="text">drink</span>
-                    </a>
-                </li>
-                
-                <li class="list" id="food-item">
-                    <a href="food.html">
-                        <span class="icon" id="food">
-                            <ion-icon name="restaurant"></ion-icon>
-                        </span>
-                        <span class="text">food</span>
-                    </a>
-                </li>
-              <div class="indicator"></div>
-            </ul>
-                    </div>
+    <ul>
+        <li class="list active">
+            <a href="index.html">
+                <span class="icon" id="drink">
+                    <ion-icon name="cafe"></ion-icon>
+                </span>
+                <span class="text">drink</span>
+            </a>
+        </li>
+        <li class="list" id="food-item">
+            <a href="food.html">
+                <span class="icon" id="food">
+                    <ion-icon name="restaurant"></ion-icon>
+                </span>
+                <span class="text">food</span>
+            </a>
+        </li>
+        <div class="indicator"></div>
+    </ul>
+</div>
 
         <section id="products" class="products">
             <h1>Main Course</h1>
@@ -483,21 +480,47 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        const list = document.querySelectorAll('.list');
-        function active(){
-            list.forEach((item) => item.classList.remove('active'));
-            this.classList.add('active');
-        }
-        list.forEach((item) => item.addEventListener('click', active));
     
-        // Tambahkan kelas active ke item "food" saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            const foodItem = document.getElementById('food-item');
-            foodItem.classList.add('active');
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const list = document.querySelectorAll('.list');
+        const indicator = document.querySelector('.indicator');
+        const foodItem = document.getElementById('food-item');
+        const drinkItem = list[0]; // Mengasumsikan item pertama adalah drink
+
+        // Fungsi untuk mengatur kelas aktif dan memindahkan indikator
+        function setActive(item) {
+            list.forEach((li) => li.classList.remove('active'));
+            item.classList.add('active');
+
+            // Pindahkan indikator berdasarkan item yang aktif
+            const index = Array.from(list).indexOf(item);
+            indicator.style.transform = `translateX(calc(70px * ${index}))`;
+        }
+
+        // Cek halaman saat ini dan atur item aktif
+        if (window.location.pathname.includes('food.html')) {
+            setActive(foodItem);
+        } else {
+            setActive(drinkItem);
+        }
+
+        // Tambahkan event listener untuk item navigasi
+        list.forEach((item) => {
+            item.addEventListener('click', () => {
+                setActive(item);
+            });
         });
-    </script>
+
+        // Tambahkan event listener untuk mengembalikan indikator saat kembali ke halaman drink
+        window.addEventListener('popstate', function() {
+            if (window.location.pathname.includes('index.html')) {
+                setActive(drinkItem);
+            }
+        });
+    });
+</script>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
