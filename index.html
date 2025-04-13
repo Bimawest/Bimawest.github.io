@@ -97,7 +97,7 @@
     background-size: cover;
     border-radius: 50%;
     border: 6px solid #f5f0e6;
-    transition: 0.5s;
+    transition: transform 0.5s ease; /* Smooth transition for the indicator */
   }
   
   .indicator::before {
@@ -773,14 +773,29 @@
 
     <script>
     const list = document.querySelectorAll('.list');
-    function active(){
-      list.forEach((item) => item.classList.remove('active'));
-      this.classList.add('active');
+    const indicator = document.querySelector('.indicator');
+
+    function active() {
+        // Remove active class from all items
+        list.forEach((item) => item.classList.remove('active'));
+        
+        // Add active class to the clicked item
+        this.classList.add('active');
+
+        // Animate the indicator
+        const index = Array.from(list).indexOf(this);
+        const translateX = index * 70; // Assuming each item is 70px wide
+        indicator.style.transform = `translateX(${translateX}px)`;
+
+        // Navigate to the href after the animation
+        setTimeout(() => {
+            const link = this.querySelector('a').getAttribute('href');
+            window.location.href = link; // Navigate to the new page
+        }, 500); // Adjust the timeout to match the animation duration
     }
+
     list.forEach((item) => item.addEventListener('click', active));
-  </script>
-    
-    <script>
+</script>
         document.addEventListener("DOMContentLoaded", () => {
             const addToCartButtons = document.querySelectorAll(".cart");
             const cartBadge = document.getElementById("cart-badge");
