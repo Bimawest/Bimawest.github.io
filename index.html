@@ -23,68 +23,84 @@
 
 <style>
     .navigation {
-      position: relative;
-    display: flex;
-    margin-top: 100px;
-    width: auto;
-    height: 80px;
-    background-image: transparent; /* Contoh background */
-    background-size: cover;
-    border-radius: 10px;
-    padding-left: 5%;
-}
+        position: relative;
+        width: 100%;
+        height: 70px;
+        background-color: transparent;
+        border-radius: 10px;
+        margin-top: 100px;
+    }
 
-.navigation ul {
-    display: flex;
-    padding: 0;
-    margin: 0;
-}
+    .navigation ul {
+        display: flex;
+        width: 300px;
+    }
 
-.navigation ul li {
-  list-style: none;
-    margin: 0 20px;
-    position: relative;
-    transition: transform 0.3s ease-in-out; /* Efek transisi untuk tinggi ikon */
-    z-index: 1;
-}
+    .navigation ul li {
+        position: relative;
+        list-style: none;
+        width: 70px;
+        height: 70px;
+        z-index: 1;
+    }
 
-.navigation ul li a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: white; /* Contoh warna teks */
-    transition: color 0.3s ease-in-out; /* Transisi warna teks */
-    -webkit-tap-highlight-color: transparent;
-}
+    .navigation ul li a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        font-weight: 500;
+        -webkit-tap-highlight-color: transparent;
+    }
 
-.navigation ul li a .icon {
-    font-size: 1.5em;
-    line-height: 1;
-    margin-bottom: 5px;
-    transition: font-size 0.3s ease-in-out; /* Efek transisi untuk ukuran ikon */
-}
+    .navigation ul li a .icon {
+        position: relative;
+        display: block;
+        line-height: 75px;
+        font-size: 1.8em;
+        text-align: center;
+        transition: 0.5s;
+        color: #efff;
+    }
 
-.navigation ul li a .text {
-    font-size: 0.8em;
-    margin-top: 1rem;
-}
+    .navigation ul li.active a .icon {
+        transform: translateY(-35px);
+    }
 
-.indicator {
-    position: absolute;
-    display: flex;
-    top: -36px;
-    width: 60px; /* Sesuaikan lebar indicator */
-    height: 60px;
-    background-image: url('img/kopi.jpg'); /* Contoh warna indicator */
-    background-size: cover;
-    border: 6px #f5f0e6 solid;
-    border-radius: 50%;
-    transition: left 0.3s ease-in-out; /* Animasi pergerakan indicator */
-}
+    .navigation ul li a .text {
+        position: absolute;
+        color: #efff;
+        font-weight: 400;
+        font-size: 0.7em;
+        letter-spacing: 0.05rem;
+        transition: 0.5s;
+        opacity: 1;
+        transform: translateY(20px);
+        text-transform: capitalize;
+    }
 
-.indicator::before {
+    .navigation ul li.active a .text {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+
+    .indicator {
+        position: absolute;
+        top: -36px;
+        left: 05px;
+        width: 60px;
+        height: 60px;
+        background-image: url('img/kopi.jpg');
+        background-size: cover;
+        border-radius: 50%;
+        border: 6px solid #f5f0e6;
+        transition: 0.5s;
+    }
+
+    .indicator::before {
         content: '';
         position: absolute;
         top: 50%;
@@ -108,39 +124,13 @@
         box-shadow: -1px -10px 0 0 #f5f0e6;
     }
 
+    .navigation ul li:nth-child(1).active~.indicator {
+        transform: translateX(calc(70px *0));
+    }
 
-/* Styling awal untuk ikon food lebih tinggi */
-.navigation ul li#drink {
-    transform: translateY(-10px); /* Contoh nilai ketinggian */
-    left: -3px;
-}
-
-/* Hover pada item drink */
-.navigation ul li#food-item:hover ~ .indicator {
-    left: calc(13px + 80px); /* Sesuaikan dengan margin awal */
-}
-
-.navigation ul li#food-item:hover {
-    transform: translateY(-10px); /* Contoh nilai ketinggian saat hover */
-}
-
-/* Kembalikan ketinggian ikon food saat ikon drink di-hover */
-.navigation ul li#food-item:hover ~ ul li#drink {
-    transform: translateY(0);
-}
-
-/* Hover pada item food (opsional, untuk interaksi visual) */
-.navigation ul li#drink:hover {
-    transform: translateY(-15px); /* Efek hover tambahan untuk food */
-}
-
-.navigation ul li#drink:hover ~ .indicator {
-    left: 20px; /* Pastikan indicator kembali ke posisi food saat food di-hover */
-}
-
-.navigation ul li#drink:hover a .icon {
-    font-size: 1.8em; /* Contoh ukuran ikon saat hover */
-}
+    .navigation ul li:nth-child(2).active~.indicator {
+        transform: translateX(calc(70px *1));
+    }
 </style>
 
 <body>
@@ -237,26 +227,27 @@
         <!-- Product Grid -->
 
         <div class="navigation">
-    <ul>
-        <li class="list active" id="drink">
-          <a href="index.html">
-            <span class="icon">
-                    <ion-icon name="cafe"></ion-icon>
-                </span>
-                <span class="text">drink</span>
-            </a>
-        </li>
-        <li class="list" id="food-item">
-          <a href="food.html">
-            <span class="icon">
-                    <ion-icon name="restaurant"></ion-icon>
-                </span>
-                <span class="text">food</span>
-            </a>
-        </li>
-        <div class="indicator"></div>
-    </ul>
-</div>
+            <ul>
+                <li class="list active">
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="cafe"></ion-icon>
+                        </span>
+                        <span class="text">drink</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <a href="food.html">
+                        <span class="icon">
+                            <ion-icon name="restaurant"></ion-icon>
+                        </span>
+                        <span class="text">food</span>
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
+        </div>
 
         <section id="products" class="products">
             <div class="menu">
@@ -794,19 +785,7 @@
 
         // Pindahkan indikator berdasarkan item yang aktif
         const index = Array.from(list).indexOf(item);
-        indicator.style.transform = `translateX(calc(0px * ${index}))`;
-
-        // Tambahkan efek translateY pada ikon
-        if (item === drinkItem) {
-            item.style.transform = 'translateY(-10px)'; // Angkat ikon drink
-        } else {
-            item.style.transform = 'translateY(0)'; // Kembalikan ikon food ke posisi normal
-        }
-
-        // Kembalikan ikon food ke posisi normal jika item food yang aktif
-        if (item === foodItem) {
-            drinkItem.style.transform = 'translateY(0)'; // Kembalikan ikon drink ke posisi normal
-        }
+        indicator.style.transform = `translateX(calc(70px * ${index}))`;
     }
 
     // Cek halaman saat ini dan atur item aktif
@@ -826,9 +805,7 @@
     // Tambahkan event listener untuk mengembalikan indikator saat kembali ke halaman drink
     window.addEventListener('popstate', function() {
         if (window.location.pathname.includes('index.html')) {
-            setActive(drinkItem); // Setel kembali ke drink
-        } else {
-            setActive(foodItem); // Setel ke food jika kembali dari food.html
+            setActive(drinkItem);
         }
     });
 });
